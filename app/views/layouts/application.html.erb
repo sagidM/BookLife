@@ -6,9 +6,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<style type="text/css">
+.field_with_errors > *{
+  border-color: red;
+}
+</style>
+
   </head>
 
   <body>
+  <div style="margin-bottom: 40px;">
+    <%=link_to 'Main', root_path%>
+    <%=link_to 'Register', signup_path%>
+    <%=link_to 'Login', signin_path%>
+    <%=link_to 'Signout', signout_path, method: :delete%>
+    <%=link_to 'Users', users_path%>
+  </div>
+<%if signed_in? %>
+You signed in!
+<br>
+  <b><%="first_name: #{current_user.first_name}, email: #{current_user.email}"%></b>
+<%end%>
+    <%#=debug flash%>
     <%= yield %>
+    <%#console if Rails.env.development?%>
   </body>
 </html>

@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   before_save { self.email.downcase! }
 
+  def self.encrypt(str)
+    Digest::SHA1.hexdigest str
+  end
+
   private
     def bdate_cannot_be_in_the_future
       unless bdate.nil?

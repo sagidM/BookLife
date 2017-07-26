@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: BookLife_production
-  username: BookLife
-  password: <%= ENV['BOOKLIFE_DATABASE_PASSWORD'] %>
+  # username: BookLife
+  # password: <%= ENV['BOOKLIFE_DATABASE_PASSWORD'] %>

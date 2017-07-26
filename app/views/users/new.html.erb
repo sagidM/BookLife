@@ -1,0 +1,10 @@
+<%=form_for @user, url: {action: :create} do |f|%>
+  <%=@user.errors.messages.inspect if @user.errors.any?%>
+  <br>
+  <%=f.text_field :email, placeholder: 'Email'%>
+  <%=f.password_field :password, placeholder: 'Password'%>
+  <%=f.text_field :first_name, placeholder: 'Name'%>
+  <br>
+  <%=f.submit%>
+<%end%>
+

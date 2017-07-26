@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  email_not_found: Email not found
+  wrong_password: Wrong password
+  nil: ''

@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20170726055451) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "sessions", id: false, force: :cascade do |t|
-    t.string "remember_token", limit: 255
+  create_table "sessions", force: :cascade do |t|
+    t.string "remember_token", limit: 255, null: false
     t.string "ip_address", limit: 39, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
