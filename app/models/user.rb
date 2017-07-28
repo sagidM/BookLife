@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :sessions
   has_secure_password
-  validates :email, format: {with: /\A[\w-]+\@[\w-]+\.[\w-]+\Z/},
+  validates :email, format: {with: /\A[-.\w0-9]+@[-.\w0-9]+\.[-.\w0-9]+\Z/},
             presence: true, uniqueness: {case_sensitive: false}
   validates :password, length: {minimum: 6}
   validates :first_name, presence: true

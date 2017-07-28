@@ -1,0 +1,5 @@
+<%=form_for @user, url: {action: :update_current_user} do|f|%>
+    <%=f.text_field :first_name, placeholder: 'First name'%>
+    <%=f.text_field :surname, placeholder: 'Surname'%>
+    <%=f.submit%>
+<%end%>
