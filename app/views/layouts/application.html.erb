@@ -20,19 +20,6 @@
   </head>
 
 <body>
-  <div style="margin-bottom: 40px;">
-    <%=link_to 'Main', root_path%>
-    <%=link_to 'Register', signup_path%>
-    <%=link_to 'Login', signin_path%>
-    <%=link_to 'Signout', signout_path, method: :delete%>
-    <%=link_to 'Users', users_path%>
-    <%=link_to 'Settings', current_user_settings_path%>
-  </div>
-  <%if signed_in? %>
-      You signed in!
-      <br>
-      <b><%="first_name: #{current_user.first_name}, email: #{current_user.email}"%></b>
-  <%end%>
 
   <div class="background-subscription">
     <form action="" id="feedback" name="subscription" method="post" class="for-the-subscription-window">
@@ -114,7 +101,22 @@
 
   </div>
   <div class="main-column-catalog">
-
+    <div class="tmp">
+      <div style="margin-bottom: 40px;">
+        <%=link_to 'Main', root_path%>
+        <%=link_to 'Register', signup_path%>
+        <%=link_to 'Login', signin_path%>
+        <%=link_to 'Signout', signout_path, method: :delete%>
+        <%=link_to 'Users', users_path%>
+        <%=link_to 'Settings', current_user_settings_path%>
+      </div>
+      <%if signed_in? %>
+          You signed in!
+          <br>
+          <b><%="first_name: #{current_user.first_name}, email: #{current_user.email}"%></b>
+      <%end%>
+      <%= yield %>
+    </div>
     <div class="platform-with-content">
       <a href="/" class="title-platform-with-content">
         <h2 class="title-content">Книги</h2>
@@ -211,9 +213,6 @@
 
 
     </div>
-
-
-
     <div class="platform-with-content">
 
       <a href="/" class="title-platform-with-content">
@@ -248,10 +247,6 @@
 
 
     </div>
-
   </div>
-
-
-<%= yield %>
   </body>
 </html>

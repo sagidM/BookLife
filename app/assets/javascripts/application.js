@@ -13,3 +13,15 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+
+$(document).ready(function() {
+    $(".login>div").click(function() {
+        $(".background-subscription").addClass('open-background-subscription');
+    });
+    $(".closed-background-subscription").click(function() {
+        $(".background-subscription").removeClass('open-background-subscription');
+    });
+});
