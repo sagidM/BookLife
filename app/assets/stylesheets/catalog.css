@@ -220,6 +220,7 @@ a {
     height: 40px;
     transition: box-shadow .3s;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    display: flex;
 }
 .search:hover {
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
@@ -606,7 +607,7 @@ a {
 }
 .for-the-subscription-window {
     position: relative;
-    width: 290px;
+    width: 294px;
     margin: 0 auto;
     top: 70px;
     padding: 30px;
@@ -625,7 +626,7 @@ a {
     background: rgb(241, 241, 241);
     padding: 10px;
     outline: none;
-    width: 290px;
+    width: 270px;
     border: 2px solid #f1f1f1;
     margin-bottom: 20px;
     box-shadow: 0 1px 1px 0px rgba(0,0,0,0.5);
@@ -662,7 +663,7 @@ a {
     background-color: #b48500;
 }
 .fields-for-name>.field-for-entering-personal-data {
-    width: 140px;
+    width: 118px;
     float: left;
 }
 
@@ -684,7 +685,7 @@ a {
 
 .credential-mail {
     position: relative;
-    width: 290px;
+    width: 294px;
     height: 44px;
 }
 .credential-mail>img {
@@ -694,7 +695,4 @@ a {
     position: absolute;
     top: 10px;
     right: 10px;
-}
-.credential-mail>.field-for-entering-personal-data {
-    width: 100%;
 }
