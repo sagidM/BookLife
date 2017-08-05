@@ -1,0 +1,12 @@
+<%=will_paginate @books%>
+<div style="line-height: 2">
+<% @books.each do |book| %>
+    <span>Name: <span style="color: #3a3a3a;"><%= book.original_name %></span></span>
+    <span style="background: #ddf;">(<%= book.published_at %>)</span>
+    <br>
+<% end %>
+</div>
+
+<%=form_for @books[0], url: '/books', method: :get, remote: true do |f|%>
+    <%=f.submit%>
+<%end%>

@@ -56,3 +56,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'factory_girl_rails', '~> 4.8'
 gem 'faker', '~> 1.8'
+gem 'will_paginate'

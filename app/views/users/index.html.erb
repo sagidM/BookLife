@@ -1,6 +1,10 @@
-Users
-<br>
-<%@users.each do |user|%>
-  <%=user.inspect%>
-  <br>
+<%=will_paginate%>
+<div>
+<%@users.each do |user| %>
+    <div>
+      <%= "#{user.first_name} #{user.surname} (#{user.bdate})" %>
+      <b><%=user.email%></b>
+      <%=image_tag user.avatar%>
+    </div>
 <%end%>
+</div>

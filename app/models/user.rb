@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :author
   has_many :sessions
   has_secure_password
   validates :email, format: {with: /\A[-.\w0-9]+@[-.\w0-9]+\.[-.\w0-9]+\Z/},
