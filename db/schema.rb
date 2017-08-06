@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731055423) do
+ActiveRecord::Schema.define(version: 20170806120823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,34 @@ ActiveRecord::Schema.define(version: 20170731055423) do
     t.index ["name"], name: "index_book_series_on_name"
   end
 
+  create_table "books", force: :cascade do |t|
+    t.string "type", limit: 20, null: false
+    t.bigint "abstract_book_id", null: false
+    t.string "name", limit: 50, null: false
+    t.string "poster", limit: 255, null: false
+    t.string "background_image", limit: 255
+    t.string "language", limit: 5, null: false
+    t.date "published_at", null: false
+    t.text "description"
+    t.bigint "publishing_house_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["abstract_book_id"], name: "index_books_on_abstract_book_id"
+    t.index ["name"], name: "index_books_on_name"
+    t.index ["publishing_house_id"], name: "index_books_on_publishing_house_id"
+    t.index ["type"], name: "index_books_on_type"
+  end
+
+  create_table "publishing_houses", force: :cascade do |t|
+    t.string "name", limit: 50, null: false
+    t.text "description", null: false
+    t.string "logo", limit: 255
+    t.date "year_of_foundation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_publishing_houses_on_name"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string "remember_token", limit: 255, null: false
     t.string "ip_address", limit: 39, null: false
@@ -86,5 +114,7 @@ ActiveRecord::Schema.define(version: 20170731055423) do
   add_foreign_key "abstract_books_book_series", "abstract_books", on_delete: :cascade
   add_foreign_key "abstract_books_book_series", "book_series", on_delete: :cascade
   add_foreign_key "authors", "users", on_delete: :cascade
+  add_foreign_key "books", "abstract_books", on_delete: :cascade
+  add_foreign_key "books", "publishing_houses"
   add_foreign_key "sessions", "users", on_delete: :cascade
 end

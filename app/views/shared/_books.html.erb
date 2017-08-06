@@ -3,9 +3,9 @@
     <h2 class="title-content">Книги</h2>
     <div class="view-all-content">ЕЩЕ</div>
   </a>
-  <% 3.times do %>
+  <% @ebooks.each do |ebook| %>
       <div class="block-book">
-        <%= render 'shared/book' %>
+        <%= render 'shared/book', book: ebook %>
       </div>
   <% end %>
 </div>
@@ -16,9 +16,9 @@
     <h2 class="title-content">Аудиокниги</h2>
     <div class="view-all-content">ЕЩЕ</div>
   </a>
-  <% 2.times do %>
+  <% @audiobooks.each do |audiobook| %>
       <div class="audiobook-block">
-        <%= render 'shared/book' %>
+        <%= render 'shared/book', book: audiobook %>
       </div>
   <% end %>
 </div>

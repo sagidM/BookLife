@@ -25,9 +25,9 @@
             <li class="indicators-comment"><div class="img-indicators-comment"><div></div></div><div class="number-indicators-comment">137</div></li>
             <li class="indicators-quotes"><div class="img-indicators-quotes"><div></div></div><div class="number-indicators-quotes">1137</div></li>
           </ul>
-          <img class="img-book-poster" src="/images/4.jpg" />
+          <img class="img-book-poster" src="<%=@book.poster%>" />
           <div class="dark-book-art"></div>
-          <div class="img-book-art"><img src="/images/1.jpg" /></div>
+          <div class="img-book-art"><img src="<%=@book.background_stable_image%>" /></div>
 
           <!-- На странице книги -->
           <div class="book-panel">
@@ -64,24 +64,24 @@
           </div>
       <%end%>
 
-      <% if(request.path.start_with?('/users')) %>
-          <div class="photo-user" ><img class="img-photo-user" src="/images/user.jpg" /></div>
+      <% if params[:controller] == 'users' and params[:action] == 'show' %>
+          <div class="photo-user" ><img class="img-photo-user" src="<%=@user.avatar%>" /></div>
           <div class="blackout-art"></div>
           <div class="art-photo-user"><img src="/images/user.jpg" /></div>
 
           <!-- На странице пользователя -->
           <div class="user-panel">
-            <h1 class="user-name">Юсупов Расул</h1>
+            <h1 class="user-name"><%="#{@user.first_name} #{@user.surname}"%></h1>
 
             <div class="user-desc">Коротко о себе...</div>
 
             <div class="button-subscribers">
               <div class="icons-subscribers">
-                <div class="one-icon-subscribers"><img src="/images/user.jpg" /></div>
-                <div class="two-icon-subscribers"><img src="/images/user.jpg" /></div>
-                <div class="three-icon-subscribers"><img src="/images/user.jpg" /></div>
-                <div class="four-icon-subscribers"><img src="/images/user.jpg" /></div>
-                <div class="four-icon-subscribers"><img src="/images/user.jpg" /></div>
+                <div class="one-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+                <div class="two-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+                <div class="three-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+                <div class="four-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+                <div class="four-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
               </div>
               <div class="numb-subscribers">234 подписчиков</div>
             </div>

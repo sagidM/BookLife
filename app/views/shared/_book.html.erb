@@ -1,12 +1,12 @@
-  <a class="hover-block-book" href="/books/1"></a>
+  <a class="hover-block-book" href="<%=book_path book%>" style="left: 0;"></a>
   <div class="poster-block-book">
-    <img class="poster-book"src="/images/1.jpg" />
-    <img class="behind-poster-book" src="images/1.jpg" />
+    <img class="poster-book" src="<%=book.poster%>" />
+    <img class="behind-poster-book" src="/images/1.jpg" />
   </div>
   <div class="info-block-book">
-    <a class="hover-info-block-book" href="book"></a>
-    <div class="name-block-book">Метро 2035</div>
-    <a href="#" class="author-block-book">Дмитрий Глуховский</a>
+    <a class="hover-info-block-book" href="<%=book_path book%>" style="left: 0;"></a>
+    <div class="name-block-book"><%=book.name%></div>
+    <a href="#" class="author-block-book"><%=book.abstract_book.authors.first.first_name%></a>
     <div class="price-info-block-book"><div class="buy-price-info-block-book">150 РУБ.</div><div class="rental-price-info-block-book">20 РУБ.</div></div>
     <div class="bookmark-info-block-book"><div></div></div>
     <div class="raiting-info-block-book">

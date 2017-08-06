@@ -3,8 +3,7 @@ p 'routes is initializing'
 Rails.application.routes.draw do
   root 'home#index'
 
-  get '/books' => 'abstract_books#index'
-  get '/books/:id' => 'abstract_books#show', as: :book
+  resources :books
 
   # SessionsController
   match '/login', to: 'sessions#new', via: :get, as: :signin

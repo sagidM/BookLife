@@ -1,0 +1,202 @@
+<%=provide :common_lower_title, 'книга'%>
+
+﻿<div class="main-column">
+  <div class="top-block-main-column">
+    <div class="block-info-book">
+      <div class="text-info-book">
+        <h3>Описание</h3>
+        <p><%=@book.description%></p>
+      </div>
+      <div class="block-character">
+        <div class="character">
+          <div class="ganre-book"><span class="title-ganre-book">Жанры: </span><span class="body-ganre-book"><a href="/">Зарубежная фантастика</a>, <a href="/">Зарубежные детективы</a>, <a href="/">Социальная фантастика</a>, <a href="/"> Триллеры</a></span></div>
+          <div class="series-and-publishing-house">
+            <span class="series-book"><span>Серия: </span>
+              <%@book.abstract_book.book_series do |book_series|%>
+                <a href="#"><%=book_series.name%></a>
+              <%end%>
+            <span> #5</span></span>
+            <span class="publishing-house-book">
+              <span>Издание: </span>
+              <a href="#"><%=@book.publishing_house.name%></a>
+            </span>
+          </div>
+        </div>
+        <div class="character-buttons">
+          <div class="left-character-button">
+            <a href="/" class="yet">ЕЩЁ</a>
+          </div>
+          <div class="right-character-button">
+            <a href="/" class="table-of-contents">ОГЛАВЛЕНИЕ</a>
+            <div class="pages">231 стр.</div>
+            <div class="chapters">21 гл.</div>
+          </div>
+        </div>
+        <div class="block-evaluation">
+          <div class="book-evaluation">
+            <div class="estimate-book-evaluation">
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+            </div>
+            <span class="text-book-evaluation">оценить</span>
+          </div>
+          <div class="status-add-book">
+            <div>Хочу прочесть</div>
+            <a href="/">Читаю</a>
+            <a href="/">Прочитал</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block-related-books">
+      <div class="category-book">
+        <div class="ebook-block">
+          <div class="img-ebook-block"></div>
+          <div class="text-ebook-block">Цифровые книги</div>
+        </div>
+        <div class="aubook-block">
+          <div class="img-aubook-block"></div>
+          <div class="text-aubook-block">Цифровые аудиокниги</div>
+        </div>
+        <div class="pbook-block">
+          <div class="img-pbook-block"></div>
+          <div class="text-pbook-block">Печатные книги</div>
+        </div>
+      </div>
+      <div class="cont-category-book">
+        <h4>Аудиокниги для переключения</h4>
+        <div class="books-another-edition">
+          <div class="book-another-edition">
+            <div class="poster-book-another-edition">
+              <img src="/images/1.jpg" />
+              <div class="go-over-book-another-edition"><div></div></div>
+            </div>
+            <div class="text-book-another-edition">
+              <div class="pub-house-cont-category-book">Нигде не купишь!</div>
+              <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+              <div class="price-book-another-edition">БЕСП.</div>
+            </div>
+            <div class="show-book-another-edition">
+              <div class="bookmark-book-another-edition"><div></div></div>
+              <div class="fragment-book-another-edition">
+                <div class="ico-fragment-book-another-edition"><div></div></div>
+                <div class="text-fragment-book-another-edition">фрагмент</div>
+              </div>
+            </div>
+          </div>
+          <div class="book-another-edition">
+            <div class="poster-book-another-edition">
+              <img src="/images/2.jpg" />
+              <div class="go-over-book-another-edition"><div></div></div>
+            </div>
+            <div class="text-book-another-edition">
+              <div class="pub-house-cont-category-book">Аудиокниги АСТ</div>
+              <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+              <div class="price-book-another-edition"><div class="buy-price-book-another-edition">150 РУБ.</div><div class="rental-price-book-another-edition">20 РУБ.</div></div>
+            </div>
+            <div class="show-book-another-edition">
+              <div class="bookmark-book-another-edition"><div></div></div>
+              <div class="fragment-book-another-edition">
+                <div class="ico-fragment-book-another-edition"><div></div></div>
+                <div class="text-fragment-book-another-edition">фрагмент</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="bottom-block-main-column">
+    <div class="recent-reviews-book">
+      <div class="head-recent-reviews-book">
+        <h4>Последние отзывы</h4>
+      </div>
+      <div class="body-recent-reviews-book">
+        <div class="latest-review">
+          <div class="head-latest-review">
+            <div class="icon-author-reviews"><img src="/images/user.jpg" /></div>
+            <div class="evaluation-author-reviews">
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+            </div>
+          </div>
+          <div class="body-latest-review">
+            До чего же мрачная, тяжелая, депрессивная книга. Но вместе
+            с тем и очень сильная по эмоциональному воздействию-
+            ходила под впечатлением несколько дней. О чем же
+            повествует книга "Дорога" Кормака Маккарти? Далекое, а
+            может и не...
+          </div>
+        </div>
+        <div class="latest-review">
+          <div class="head-latest-review">
+            <div class="icon-author-reviews"><img src="/images/user.jpg" /></div>
+            <div class="evaluation-author-reviews">
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+            </div>
+          </div>
+          <div class="body-latest-review">
+            До чего же мрачная, тяжелая, депрессивная книга. Но вместе
+            с тем и очень сильная по эмоциональному воздействию-
+            ходила под впечатлением несколько дней. О чем же
+            повествует книга "Дорога" Кормака Маккарти? Далекое, а
+            может и не...
+          </div>
+        </div>
+        <div class="latest-review">
+          <div class="head-latest-review">
+            <div class="icon-author-reviews"><img src="/images/user.jpg" /></div>
+            <div class="evaluation-author-reviews">
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+            </div>
+          </div>
+
+          <div class="body-latest-review">
+            До чего же мрачная, тяжелая, депрессивная книга. Но вместе
+            с тем и очень сильная по эмоциональному воздействию-
+            ходила под впечатлением несколько дней. О чем же
+            повествует книга "Дорога" Кормака Маккарти? Далекое, а
+            может и не...
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="best-quotes-book">
+      <div class="head-best-quotes-book">
+        <h4>Лучшие цитаты</h4>
+      </div>
+      <div class="body-best-quotes-book">
+        <div class="best-quote">
+          — Удачи вы нам тоже не пожелаете?
+          — Я не знаю, что такое удача. На что она похожа. Есть кто-то,
+          кому повезло?
+        </div>
+        <div class="best-quote">
+          Бога нет, а мы его пророки.
+        </div>
+        <div class="best-quote">
+          Бренность мира наконец-то становится очевидной. Давние
+          проблемы остаются нерешенными, растворяются в ночи.
+          Были — и нет их. Выключен свет, пусто. Оглянись вокруг.
+          «Вечность» занимает много времени. Но мальчик знал всему
+          цену: «вечность» — безвременна.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

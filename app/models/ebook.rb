@@ -1,0 +1,2 @@
+class Ebook < Book
+end

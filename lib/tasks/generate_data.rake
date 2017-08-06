@@ -3,9 +3,11 @@ def configure
   Faker::Config.locale = :ru
 end
 IMAGE_FORMATS = %w(png jpg bmp)
-def random_avatar
+def random_avatar(width=0, height=0)
+  width = rand 100..400 if width == 0
+  height = rand 200..600 if height == 0
   Faker::Avatar.image(nil,
-                      "#{rand 100..400}x#{rand 200..600}",
+                      "#{width}x#{height}",
                       IMAGE_FORMATS.sample,
                       "set#{rand 1..4}",
                       "bg#{rand 1..2}")
@@ -29,17 +31,32 @@ namespace :db do
       populate_authors count
     end
 
-    desc 'Create books and their authors'
+    desc 'Create abstract books and their authors'
+    task :abstract_books, [:count] => :environment do |_, args|
+      count = extract_count args
+      populate_abstract_books_and_authors count
+    end
+
+    desc 'Create books for each abstract book and their houses'
     task :books, [:count] => :environment do |_, args|
       count = extract_count args
-      populate_books_and_authors count
+      populate_books_and_houses count/3
     end
   end
+
   desc 'Create records in database'
   task :populate, [:count] => :environment do |_, args|
     count = extract_count args
     populate_users count
-    populate_books_and_authors count
+    populate_abstract_books_and_authors count
+    populate_books_and_houses count/3
+
+    if User.find_by_email('q@q.q').nil?
+      User.create! first_name: 'q', email: 'q@q.q', password: '123qwe'
+    end
+    series = BookSeries.new name: Faker::Book.title, poster: random_avatar(300, 400)
+    series.abstract_books = AbstractBook.limit(count/2)
+    series.save
   end
 end
 
@@ -66,7 +83,7 @@ def random_author_hash
   {
       first_name: Faker::Name.first_name,
       surname: Faker::Name.last_name,
-      patronymic: Faker::Name.parent_name,
+      patronymic: Faker::Name.first_name,
       avatar: random_avatar,
       bdate: Faker::Date.birthday,
   }
@@ -78,7 +95,7 @@ def populate_authors(count)
   puts "#{count} authors created"
 end
 
-def populate_books_and_authors(count)
+def populate_abstract_books_and_authors(count)
   configure
 
   authors = (0..count/3).to_a.map {Author.new random_author_hash}
@@ -95,8 +112,38 @@ def populate_books_and_authors(count)
 
     AbstractBookAuthor.create! params
   end
-  puts "#{count} books and #{authors.count{|a| not a.new_record?}} authors created"
+  puts "#{count} abstract books and #{authors.count{|a| not a.new_record?}} authors were created"
 end
+
+def populate_books_and_houses(houses_count)
+  configure
+  houses = (0...houses_count).to_a.map do
+    PublishingHouse.new({
+      name: Faker::Book.publisher,
+      description: Faker::Company.bs,
+      logo: Faker::Company.logo,
+      year_of_foundation: Faker::Date.birthday
+    })
+  end
+  types = ['Ebook', 'Audiobook']
+  AbstractBook.all.each do |ab|
+    Book.create!({
+        type: types[Faker::Config.random.rand(0...types.size)],
+        abstract_book: ab,
+        name: ab.original_name,
+        published_at: ab.published_at,
+        language: 'en',
+        poster: random_avatar(),
+        background_image: nil,
+        description: Faker::Lorem.paragraph,
+        publishing_house: houses.sample,
+     })
+  end
+  puts "#{AbstractBook.count} books and #{houses.count{|h| not h.new_record?}} houses were created"
+end
+
+
+
 
 # big data
 =begin
