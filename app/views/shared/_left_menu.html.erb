@@ -1,0 +1,116 @@
+
+<div class="left-column">
+  <div class="book-column-header">
+    <div class="button-rev-menu">
+      <div></div>
+    </div>
+    <a href="catalog.php" class="logo-quick"><div></div></a>
+    <h2 class="title-name"><%=yield :common_lower_title%></h2>
+
+  </div>
+  <div class="book-column-body">
+    <div class="<%=request.path.start_with?('/books') ? 'book' : 'user'%>-art">
+      <div class="buttons-control">
+        <div class="button-reveal"><div></div></div>
+        <div class="button-control-share"><div></div></div>
+        <!-- На странице книги -->
+        <div class="button-control-bookmark"><div></div></div>
+      </div>
+
+
+      <% if(request.path.start_with?('/books')) %>
+          <ul class="book-indicators">
+            <li class="indicators-raiting"><div class="img-indicators-raiting"><div></div></div><div class="number-indicators-raiting">4,5</div></li>
+            <li class="indicators-add"><div class="img-indicators-add"><div></div></div><div class="number-indicators-add">237</div></li>
+            <li class="indicators-comment"><div class="img-indicators-comment"><div></div></div><div class="number-indicators-comment">137</div></li>
+            <li class="indicators-quotes"><div class="img-indicators-quotes"><div></div></div><div class="number-indicators-quotes">1137</div></li>
+          </ul>
+          <img class="img-book-poster" src="/images/4.jpg" />
+          <div class="dark-book-art"></div>
+          <div class="img-book-art"><img src="/images/1.jpg" /></div>
+
+          <!-- На странице книги -->
+          <div class="book-panel">
+            <h1 class="book-name">Дорога</h1>
+            <a href="/" class="book-author">
+              <div class="avatar-book-author"><img src="/images/author.jpg" /></div>
+              <div >
+                <div class="name-book-author">Кормак Маккарти</div>
+                <div class="indicators-book-author">
+                  <div class="books-indicators-book-author"> <div class="img-books-indicators-book-author"><div></div></div> <div class="numb-books-indicators-book-author">2</div> </div>
+                  <div class="quotes-indicators-book-author"> <div class="img-quotes-indicators-book-author"><div></div></div> <div class="numb-quotes-indicators-book-author">12</div> </div>
+                </div>
+              </div>
+            </a>
+
+            <div class="book-read">
+              <div class="button-read"><div>ЧИТАТЬ</div></div>
+              <div class="status-book-read">отрывок</div>
+            </div>
+            <div class="button-subscribers">
+              <div class="icons-subscribers">
+                <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
+                <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
+                <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
+                <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
+              </div>
+              <div class="numb-subscribers">140 читают</div>
+            </div>
+            <div class="buttons-get-book">
+              <a href="/" class="button-get-book">КУПИТЬ ЗА <span>100 р.</span></a>
+              <a href="/" class="button-get-book">ПРОКАТ ЗА <span>20 р.</span></a>
+              <a href="/" class="button-get-book">ПОДПИСКА ЗА <span>190 р.</span></a>
+            </div>
+          </div>
+      <%end%>
+
+      <% if(request.path.start_with?('/users')) %>
+          <div class="photo-user" ><img class="img-photo-user" src="/images/user.jpg" /></div>
+          <div class="blackout-art"></div>
+          <div class="art-photo-user"><img src="/images/user.jpg" /></div>
+
+          <!-- На странице пользователя -->
+          <div class="user-panel">
+            <h1 class="user-name">Юсупов Расул</h1>
+
+            <div class="user-desc">Коротко о себе...</div>
+
+            <div class="button-subscribers">
+              <div class="icons-subscribers">
+                <div class="one-icon-subscribers"><img src="/images/user.jpg" /></div>
+                <div class="two-icon-subscribers"><img src="/images/user.jpg" /></div>
+                <div class="three-icon-subscribers"><img src="/images/user.jpg" /></div>
+                <div class="four-icon-subscribers"><img src="/images/user.jpg" /></div>
+                <div class="four-icon-subscribers"><img src="/images/user.jpg" /></div>
+              </div>
+              <div class="numb-subscribers">234 подписчиков</div>
+            </div>
+            <div class="book-read" id="sub-user">
+              <div class="button-read"><div>ПОДИСАТЬСЯ</div></div>
+            </div>
+          </div>
+      <%end%>
+    </div>
+
+
+
+
+
+
+    <ul class="menu-second-level">
+      <%if(request.path.start_with?('/books'))%>
+          <li class="current-item-menu-second-level item-menu-second-level"><a href="books/1" class="a-item-menu-second-level">О КНИГЕ</a></li>
+          <li class="item-menu-second-level"><a href="reviews.php" class="a-item-menu-second-level">РЕЦЕНЗИИ</a></li>
+          <li class="item-menu-second-level"><a href="/" class="a-item-menu-second-level">ЦИТАТЫ</a></li>
+          <li class="item-menu-second-level"><a href="/" class="a-item-menu-second-level">ПОХОЖИЕ</a></li>
+      <%end%>
+      <%if(request.path.start_with?('/users'))%>
+          <li class="item-menu-second-level"><a href="/" class="a-item-menu-second-level">ТВОРЧЕСТВО</a></li>
+          <li class="current-item-menu-second-level item-menu-second-level"><a href="users/1" class="a-item-menu-second-level">ЛЕНТА</a></li>
+          <li class="item-menu-second-level"><a href="/" class="a-item-menu-second-level">БИБЛИОТЕКА</a></li>
+          <li class="item-menu-second-level"><a href="/" class="a-item-menu-second-level">ПОДПИСКИ</a></li>
+          <li class="item-menu-second-level"><a href="/" class="a-item-menu-second-level">СТАТИСТИКА И СЧЕТ</a></li>
+      <%end%>
+    </ul>
+  </div>
+</div>

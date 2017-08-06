@@ -13,11 +13,13 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery2
+//= require jquery_ujs
 
 
 
-
-$(document).ready(function() {
+document.addEventListener('turbolinks:load', function(e) {
+    console.log(e)
     $(".login>div").click(function() {
         $(".background-subscription").addClass('open-background-subscription');
     });

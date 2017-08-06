@@ -1,1 +1,11 @@
-alert("some text in javascript")
+console.log('<%=request.path%>');
+var page = <%=params[:page] || 1%>;
+var path = '/books';
+if (page !== 1) path += '?page=' + page;
+
+if (location.href !== location.origin + path) {
+    history.pushState({scrollTopBody: document.body.scrollTop}, `Book ${page}`, path);
+    document.title = 'Book ' + page;
+}
+$("#part-of-books").text("data from page " + page);
+console.log(path);

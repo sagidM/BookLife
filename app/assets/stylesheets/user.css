@@ -1,0 +1,89 @@
+.user-panel {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+.user-name {
+    font-size: 30px;
+    margin: 22px 30px 0;
+    font-weight: bold;
+}
+.user-desc {
+    color: #a4a4a4;
+    font-size: 14px;
+    margin: 15px 30px 20px;
+}
+
+.book-art:hover>.photo-user {
+    opacity: 0;
+}
+.photo-user {
+    position: absolute;
+    z-index: 3;
+    width: 50px;
+    height: 50px;
+    right: 25px;
+    bottom: -26px;
+    border: 1px white solid;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: width .3s, height .3s, right .3s, bottom .3s;
+}
+.img-photo-user {
+    width: 100%;
+}
+
+.art-photo-user {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+    position: absolute;
+    top: 0;
+}
+.art-photo-user>img {
+    width: 100%;
+    filter: blur(7px);
+}
+
+.blackout-art {
+	background-color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    transition: background-color .3s;
+}
+.art-photo-user>img {
+    transition: blur .3s;
+}
+.user-art:hover>.photo-user {
+    right: 37%;
+    bottom: 37%;
+    width: 100px;
+    height: 100px;
+}
+
+
+.item-menu-second-level>.a-item-menu-second-level {
+    padding-right: 20px;
+    margin: 5px 0;
+    text-align: right;
+    width: 100%;
+    display: table;
+    float: right;
+    color: #5d5d5d;
+    transition: color .3s;
+}
+.current-item-menu-second-level>a.a-item-menu-second-level {
+    text-decoration: none;
+    padding: 18px 20px 14px 0;
+    border: 4px solid;
+    border-width: 0 0 4px 0;
+    background-color: #eeeeee;
+    color: #2c2c2c;
+}
+.item-menu-second-level>a.a-item-menu-second-level:hover {
+    color: #2c2c2c;
+}

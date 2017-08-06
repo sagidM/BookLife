@@ -97,3 +97,19 @@ def populate_books_and_authors(count)
   end
   puts "#{count} books and #{authors.count{|a| not a.new_record?}} authors created"
 end
+
+# big data
+=begin
+raise 'generating large sql; comment lines below!'
+
+def generate_author_sql_values
+  n = Faker::Name
+  insert = 'insert into authors(first_name, surname, patronymic, bdate, created_at, updated_at) values '
+  values = "('#{n.first_name.gsub("'", "''")}', '#{n.last_name.gsub("'", "''")}', '#{n.first_name.gsub("'", "''")}', '#{Faker::Date.birthday}', '#{Time.now}', '#{Time.now}');\n"
+  insert + values
+end
+
+sql = (0..10000).to_a.map { generate_author_sql_values }.join; nil
+f = File.expand_path('~/1/data.sql')
+File.write(f, sql)
+=end

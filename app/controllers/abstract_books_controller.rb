@@ -7,4 +7,8 @@ class AbstractBooksController < ApplicationController
       f.js
     end
   end
+
+  def show
+
+  end
 end

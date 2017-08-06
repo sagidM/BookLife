@@ -1,0 +1,126 @@
+<%=provide :common_lower_title, 'пользователь'%>
+
+﻿<div class="main-column">
+
+  <div class="navigation-plus">
+
+    <div class="filtration-panel">
+      <div class="curtail-filtration-panel"></div>
+      <div class="uncover-filtration-panel"></div>
+
+      <div class="indicators-filtration-panel">
+        <div>сортировка по: дате</div>
+        <div>кого: всех</div>
+        <div>вид: книги</div>
+      </div>
+      <div class="ticks-filtration-panel">
+        <div><input type="checkbox" /><span>рецензии: </span><span>23</span></div>
+        <div><input type="checkbox" /><span>цитаты: </span><span>12</span></div>
+        <div><input type="checkbox" /><span>записи: </span><span>43</span></div>
+      </div>
+
+
+    </div>
+
+    <div class="content-panel">
+      <div class="item-content-panel">
+        <div class="blackout-item-content-panel"></div>
+        <img src="/images/1.jpg" />
+      </div>
+      <div class="item-content-panel">
+        <div class="blackout-item-content-panel"></div>
+        <img src="/images/2.jpg" />
+      </div>
+      <div class="item-content-panel">
+        <div class="blackout-item-content-panel"></div>
+        <img src="/images/3.jpg" />
+      </div>
+      <div class="item-content-panel">
+        <div class="blackout-item-content-panel"></div>
+        <img src="/images/4.jpg" />
+      </div>
+      <div class="item-content-panel">
+        <div class="blackout-item-content-panel"></div>
+        <img src="/images/5.jpg" />
+      </div>
+      <div class="item-content-panel">
+        <div class="blackout-item-content-panel"></div>
+        <img src="/images/63.jpg" />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content">
+    <div class="write-post">
+      <div class="user-head-post-content">
+        <div class="img-head-post-content"><img src="<%=@user.avatar%>" /></div>
+      </div>
+
+      <div class="cont-write-post"><div>Поделиться...</div></div>
+
+    </div>
+
+    <div class="post-content">
+      <div class="head-post-content">
+        <div class="user-head-post-content">
+          <div class="img-head-post-content"><img src="<%=@user.avatar%>" /></div>
+          <div class="name-head-post-content">Юсупов Расул</div>
+        </div>
+
+        <div class="indicators-head-post-content">
+          <div class="visit-indic-post"><div class="img-visit-indic-post"></div><div class="numb-visit-indic-post">35</div></div>
+          <div class="time-indic-post"><div class="img-time-indic-post"></div><div class="numb-time-indic-post">3д.</div></div>
+        </div>
+
+      </div>
+      <div class="body-post-content">
+        <div class="text-body-post-content">
+          Жужелица темно-синего цвета с металлическим отливом.
+          Ведет сумеречный или ночной образ жизни, днем
+          скрывается под камнями, комочками почвы. Ведет
+          сумеречный или ночной образ жизни, днем скрывается
+          под камнями, комочками почвы.
+        </div>
+
+        <div class="slider-body-post-content">
+          <div class="book-post-content">
+            <div class="add-bottom-post"><div class="img-add-bottom-post"><div></div></div><div class="numb-add-bottom-post">315</div></div>
+            <div class="poster-book-post-content">
+              <img src="/images/122.jpg" />
+            </div>
+            <div class="raiting-book-post-content">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="info-book-post-content">
+              <div class="aurhor-book-post-content">Анджей Сапковский</div>
+              <div class="name-book-post-content">Ведьмак</div>
+              <div class="price-book-post-content">купить за 100 р.</div>
+              <div class="price-book-post-content">прокат за 20 р.</div>
+            </div>
+            <div class="black-art-book-post-content"></div>
+            <div class="art-book-post-content"><img src="/images/122.jpg" /></div>
+          </div>
+        </div>
+
+
+
+        <div class="bottom-post-content">
+          <div class="indicators-bottom-post-content">
+            <div class="activ-bottom-post like-bottom-post"><div class="img-like-bottom-post"><div></div></div><div class="numb-like-bottom-post">315</div></div>
+            <div class="repost-bottom-post"><div class="img-repost-bottom-post"><div></div></div><div class="numb-repost-bottom-post">35</div></div>
+            <div class="comment-bottom-post"><div class="img-comment-bottom-post"><div></div></div><div class="numb-comment-bottom-post">15</div></div>
+          </div>
+          <div class="random-reviews">
+            <div class="photo-user-random-reviews"><img src="<%=@user.avatar%>" /></div>
+            <div class="text-user-random-reviews">Спасибо за комментарий!  Вы как в языке программирования оцениваете :)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

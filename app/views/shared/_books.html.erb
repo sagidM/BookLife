@@ -1,0 +1,26 @@
+<div class="platform-with-content">
+  <a href="/" class="title-platform-with-content">
+    <h2 class="title-content">Книги</h2>
+    <div class="view-all-content">ЕЩЕ</div>
+  </a>
+  <% 3.times do %>
+      <div class="block-book">
+        <%= render 'shared/book' %>
+      </div>
+  <% end %>
+</div>
+
+
+<div class="platform-with-content">
+  <a href="/" class="title-platform-with-content">
+    <h2 class="title-content">Аудиокниги</h2>
+    <div class="view-all-content">ЕЩЕ</div>
+  </a>
+  <% 2.times do %>
+      <div class="audiobook-block">
+        <%= render 'shared/book' %>
+      </div>
+  <% end %>
+</div>
+
+

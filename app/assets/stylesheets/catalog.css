@@ -1,10 +1,10 @@
 @font-face {
 	font-family: Myriad Pro;
-	src: url(../fonts/MyriadPro-Regular.otf);
+	src: url(/fonts/MyriadPro-Regular.otf);
 }
 @font-face {
 	font-family: MProCond;
-	src: url(../fonts/MyriadPro-Cond.otf);
+	src: url(/fonts/MyriadPro-Cond.otf);
 }
 body {
     margin: 0;
@@ -153,7 +153,7 @@ a {
 .bookmark-info-block-book>div {
     width: 14px;
     height: 20px;
-    background-image: url(../images/ico/bookmark-plus-red.png);
+    background-image: url(/images/ico/bookmark-plus-red.png);
     background-size: 100% 100%;
     float: right;
 }
@@ -173,7 +173,7 @@ a {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(../images/ico/raiting-yellow.png);
+    background-image: url(/images/ico/raiting-yellow.png);
 }
 
 .audiobook-block {
@@ -210,7 +210,7 @@ a {
 }
 
 .bookmark-info-block-book:hover>div {
-    background-image: url(../images/ico/bookmark-plus-red-hover.png);
+    background-image: url(/images/ico/bookmark-plus-red-hover.png);
 }
 
 
@@ -278,19 +278,19 @@ a {
     height: 100%;
 }
 .tape-img-item-head-menu {
-    background-image: url(../images/ico/newspaper.png);
+    background-image: url(/images/ico/newspaper.png);
 }
 .library-img-item-head-menu {
-    background-image: url(../images/ico/library.png);
+    background-image: url(/images/ico/library.png);
 }
 .profile-img-item-head-menu {
-    background-image: url(../images/ico/profile.png);
+    background-image: url(/images/ico/profile.png);
 }
 .people-img-item-head-menu {
-    background-image: url(../images/ico/people.png);
+    background-image: url(/images/ico/people.png);
 }
 .group-img-item-head-menu {
-    background-image: url(../images/ico/shelf.png);
+    background-image: url(/images/ico/shelf.png);
 }
 .text-item-head-menu {
     color: #5d5d5d;
@@ -424,7 +424,7 @@ a {
     width: 10px;
     height: 11px;
     margin: 9px;
-    background-image: url(../images/ico/bottom-array.png);
+    background-image: url(/images/ico/bottom-array.png);
     background-size: 100% 100%;
     float: right;
 }
@@ -460,7 +460,7 @@ a {
     width: 15px;
     height: 15px;
     margin: 10px;
-    background-image: url(../images/ico/bell.png);
+    background-image: url(/images/ico/bell.png);
     float: left;
 }
 
@@ -483,7 +483,7 @@ a {
     width: 13px;
     height: 13px;
     margin: 11px;
-    background-image: url(../images/ico/expand.png);
+    background-image: url(/images/ico/expand.png);
     float: left;
 }
 .bottom-arrow-head-user-panel:hover, .notification-head-user-panel:hover, .head-user-panel:hover>.bottom-arrow-head-user-panel {

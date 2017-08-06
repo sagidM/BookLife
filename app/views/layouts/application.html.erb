@@ -6,7 +6,7 @@
     <title>BookLife</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -20,232 +20,110 @@
   </head>
 
 <body>
-
-  <div class="background-subscription">
-    <form action="" id="feedback" name="subscription" method="post" class="for-the-subscription-window">
-      <h1>Вход или регистрация</h1>
-      <div id="answer"></div>
-      <div class="credential-mail">
-        <img src="/images/user.jpg" />
-        <input type="text" name="email" id="email" class="field-for-entering-personal-data" required="" placeholder="Ваша почта">
-      </div>
-      <div class="fields-for-name">
-        <input type="text" name="name" id="name" style="margin-right: 10px;" class="field-for-entering-personal-data" required="" placeholder="Ваше имя">
-        <input type="text" name="surname" id="surname" class="field-for-entering-personal-data" required="" placeholder="Ваше фамилия">
-      </div>
-      <input type="text" name="learned" id="learned" class="field-for-entering-personal-data" required="" placeholder="Откуда Вы о нас узнали?">
-      <input type="text" name="password" id="password" class="field-for-entering-personal-data" required="" placeholder="Пароль">
-      <!--<input type="submit" name="ok" value="Отправить" class="">-->
-      <button class="button-to-send" name="login">Вход</button>
-      <button class="button-to-send" name="registration">Регистрация</button>
-      <p>Регистрируясь, я принимаю <a href="/">условия использования</a></p>
-    </form>
-    <div class="closed-background-subscription"></div>
+  <div style="text-align: right;">
+    <%=link_to 'Main', root_path%>
+    <%=link_to 'Register', signup_path%>
+    <%=link_to 'Login', signin_path%>
+    <%=link_to 'Signout', signout_path, method: :delete%>
+    <%=link_to 'Users', users_path%>
+    <%=link_to 'Settings', current_user_settings_path%>
+    <a href="/books">Books</a>
+    <a href="/books/1">One book</a>
+    <a href="/users/1">One user</a>
   </div>
-
-
-  <div class="left-column-menu">
-    <div class="head-panel-logo">
-      <a href="/" class="logo">КнигаЖизнь</a>
-
-      <div style="display: table; margin: 0 auto;">
-        <img style="width: 20px; background-color: white; padding: 10px; border-radius: 50%; height: 20px; margin: 0 5px; cursor: pointer;" src="/images/ebook.png" />
-        <img style="width: 20px; background-color: white; padding: 10px; border-radius: 50%; height: 20px; margin: 0 5px; cursor: pointer;" src="/images/abook.png" />
-      </div>
-
-      <div class="search"><input type="text" value="" placeholder="Книга, автор или жанр"></div>
-    </div>
-
-    <div class="body-left-column-menu">
-      <ul class="head-menu">
-        <li class="current-item-head-menu item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu tape-img-item-head-menu"><div class="tape-img-item-head-menu"></div></span><span class="text-item-head-menu">ЛЕНТА</span></a></li>
-        <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="library-img-item-head-menu"></div></span><span class="text-item-head-menu">БИБЛИОТЕКА</span></a></li>
-        <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="profile-img-item-head-menu"></div></span><span class="text-item-head-menu">ПРОФИЛЬ</span></a></li>
-        <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="people-img-item-head-menu"></div></span><span class="text-item-head-menu">ЛЮДИ</span></a></li>
-        <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="group-img-item-head-menu"></div></span><span class="text-item-head-menu">ПОЛКИ</span></a></li>
-      </ul>
-
-      <div class="word-favorites">избраные</div>
-
-      <ul class="head-favorites">
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">МИРОВАЯ ЛИТЕРАТУРА</span></a></li>
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
-      </ul>
-
-      <div class="head-continue">
-        <img class="img-head-continue" src="/images/5.jpg" />
-        <span class="text-head-continue">Продолжить...</span>
-
-        <div class="head-reveal-history-of-reading"><div></div></div>
-      </div>
-
-      <div class="login"><div>ВХОД ИЛИ РЕГИСТРАЦИЯ</div></div>
-
-      <div class="head-user-panel">
-        <img class="img-head-user-panel"src="/images/user.jpg" />
-
-        <div class="text-head-user-panel">
-          <div class="name-head-user-panel">Юсупов Расул</div>
-          <a href="/" class="subscription-head-user-panel"><div></div>Без подписки</a>
+        <div class="background-subscription">
+          <form action="" id="feedback" name="subscription" method="post" class="for-the-subscription-window">
+            <h1>Вход или регистрация</h1>
+            <div id="answer"></div>
+            <div class="credential-mail">
+              <img src="/images/user.jpg" />
+              <input type="text" name="email" id="email" class="field-for-entering-personal-data" required="" placeholder="Ваша почта">
+            </div>
+            <div class="fields-for-name">
+              <input type="text" name="name" id="name" style="margin-right: 10px;" class="field-for-entering-personal-data" required="" placeholder="Ваше имя">
+              <input type="text" name="surname" id="surname" class="field-for-entering-personal-data" required="" placeholder="Ваше фамилия">
+            </div>
+            <input type="text" name="learned" id="learned" class="field-for-entering-personal-data" required="" placeholder="Откуда Вы о нас узнали?">
+            <input type="text" name="password" id="password" class="field-for-entering-personal-data" required="" placeholder="Пароль">
+            <!--<input type="submit" name="ok" value="Отправить" class="">-->
+            <button class="button-to-send" name="login">Вход</button>
+            <button class="button-to-send" name="registration">Регистрация</button>
+            <p>Регистрируясь, я принимаю <a href="/">условия использования</a></p>
+          </form>
+          <div class="closed-background-subscription"></div>
         </div>
 
-        <div class="notification-head-user-panel"><div></div></div>
-        <div class="bottom-arrow-head-user-panel"><div></div></div>
+        <div class="left-column-menu">
+          <div class="head-panel-logo">
+            <a href="/" class="logo">КнигаЖизнь</a>
 
-      </div>
+            <div style="display: table; margin: 0 auto;">
+              <img style="width: 20px; background-color: white; padding: 10px; border-radius: 50%; height: 20px; margin: 0 5px; cursor: pointer;" src="/images/ebook.png" />
+              <img style="width: 20px; background-color: white; padding: 10px; border-radius: 50%; height: 20px; margin: 0 5px; cursor: pointer;" src="/images/abook.png" />
+            </div>
 
-    </div>
-
-  </div>
-  <div class="main-column-catalog">
-    <div class="tmp">
-      <div style="margin-bottom: 40px;">
-        <%=link_to 'Main', root_path%>
-        <%=link_to 'Register', signup_path%>
-        <%=link_to 'Login', signin_path%>
-        <%=link_to 'Signout', signout_path, method: :delete%>
-        <%=link_to 'Users', users_path%>
-        <%=link_to 'Settings', current_user_settings_path%>
-      </div>
-      <%if signed_in? %>
-          You signed in!
-          <br>
-          <b><%="first_name: #{current_user.first_name}, email: #{current_user.email}"%></b>
-      <%end%>
-      <%= yield %>
-    </div>
-    <div class="platform-with-content">
-      <a href="/" class="title-platform-with-content">
-        <h2 class="title-content">Книги</h2>
-        <div class="view-all-content">ЕЩЕ</div>
-      </a>
-
-      <div class="block-book">
-        <a class="hover-block-book"href="/"></a>
-        <div class="poster-block-book">
-          <img class="poster-book"src="/images/1.jpg" />
-          <img class="behind-poster-book" src="/images/1.jpg" />
-        </div>
-        <div class="info-block-book">
-          <a class="hover-info-block-book" href="/"></a>
-          <div class="name-block-book">Метро 2035</div>
-          <a href="/" class="author-block-book">Дмитрий Глуховский</a>
-          <div class="price-info-block-book"><div class="buy-price-info-block-book">150 РУБ.</div><div class="rental-price-info-block-book">20 РУБ.</div></div>
-          <div class="bookmark-info-block-book"><div></div></div>
-          <div class="raiting-info-block-book">
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
+            <div class="search"><input type="text" value="" placeholder="Книга, автор или жанр"></div>
           </div>
-        </div>
-      </div>
 
-      <div class="block-book">
-        <a class="hover-block-book"href="/"></a>
-        <div class="poster-block-book">
-          <img class="poster-book"src="/images/2.jpg" />
-          <img class="behind-poster-book" src="/images/2.jpg" />
-        </div>
-        <div class="info-block-book">
-          <a class="hover-info-block-book" href="/"></a>
-          <div class="name-block-book">Метро 2035</div>
-          <a href="/" class="author-block-book">Дмитрий Глуховский</a>
-          <div class="price-info-block-book"><div class="buy-price-info-block-book">150 РУБ.</div><div class="rental-price-info-block-book">20 РУБ.</div></div>
-          <div class="bookmark-info-block-book"><div></div></div>
-          <div class="raiting-info-block-book">
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
+          <div class="body-left-column-menu">
+            <ul class="head-menu">
+              <li class="current-item-head-menu item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu tape-img-item-head-menu"><div class="tape-img-item-head-menu"></div></span><span class="text-item-head-menu">ЛЕНТА</span></a></li>
+              <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="library-img-item-head-menu"></div></span><span class="text-item-head-menu">БИБЛИОТЕКА</span></a></li>
+              <%if signed_in?%>
+                <li class="item-head-menu">
+                  <%=link_to settings_path, class: 'a-item-head-menu' do%>
+                      <span class="img-item-head-menu"><div class="profile-img-item-head-menu"></div></span>
+                      <span class="text-item-head-menu">ПРОФИЛЬ</span>
+                  <%end%>
+                </li>
+              <%end%>
+              <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="people-img-item-head-menu"></div></span><span class="text-item-head-menu">ЛЮДИ</span></a></li>
+              <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="group-img-item-head-menu"></div></span><span class="text-item-head-menu">ПОЛКИ</span></a></li>
+            </ul>
+
+            <div class="word-favorites">подписки</div>
+
+            <ul class="head-favorites">
+              <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">МИРОВАЯ ЛИТЕРАТУРА</span></a></li>
+              <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
+              <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
+              <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
+              <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
+            </ul>
+            <div class="head-continue">
+              <img class="img-head-continue" src="/images/5.jpg" />
+              <span class="text-head-continue">Продолжить...</span>
+
+              <div class="head-reveal-history-of-reading"><div></div></div>
+            </div>
+
+            <div class="login"><div>ВХОД ИЛИ РЕГИСТРАЦИЯ</div></div>
+
+            <div class="head-user-panel">
+              <img class="img-head-user-panel" src="/images/user.jpg" />
+
+              <div class="text-head-user-panel">
+                <div class="name-head-user-panel">Юсупов Расул</div>
+                <a href="/" class="subscription-head-user-panel"><div></div>Без подписки</a>
+              </div>
+
+              <div class="notification-head-user-panel"><div></div></div>
+              <div class="bottom-arrow-head-user-panel"><div></div></div>
+
+            </div>
+
           </div>
-        </div>
-      </div>
 
-      <div class="block-book">
-        <a class="hover-block-book"href="/"></a>
-        <div class="poster-block-book">
-          <img class="poster-book"src="/images/3.jpg" />
-          <img class="behind-poster-book" src="/images/3.jpg" />
-        </div>
-        <div class="info-block-book">
-          <a class="hover-info-block-book" href="/"></a>
-          <div class="name-block-book">Метро 2035</div>
-          <a href="/" class="author-block-book">Дмитрий Глуховский</a>
-          <div class="price-info-block-book"><div class="buy-price-info-block-book">150 РУБ.</div><div class="rental-price-info-block-book">20 РУБ.</div></div>
-          <div class="bookmark-info-block-book"><div></div></div>
-          <div class="raiting-info-block-book">
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="block-book">
-        <a class="hover-block-book"href="/"></a>
-        <div class="poster-block-book">
-          <img class="poster-book"src="/images/5.jpg" />
-          <img class="behind-poster-book" src="/images/5.jpg" />
-        </div>
-        <div class="info-block-book">
-          <a class="hover-info-block-book" href="/"></a>
-          <div class="name-block-book">Метро 2035</div>
-          <a href="/" class="author-block-book">Дмитрий Глуховский</a>
-          <div class="price-info-block-book"><div class="buy-price-info-block-book">150 РУБ.</div><div class="rental-price-info-block-book">20 РУБ.</div></div>
-          <div class="bookmark-info-block-book"><div></div></div>
-          <div class="raiting-info-block-book">
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-    <div class="platform-with-content">
-
-      <a href="/" class="title-platform-with-content">
-        <h2 class="title-content">Аудиокниги</h2>
-        <div class="view-all-content">ЕЩЕ</div>
-      </a>
-
-      <div class="audiobook-block">
-        <a class="hover-block-book"href="/"></a>
-        <div class="poster-audiobook-block">
-          <img class="poster-book" src="/images/4.jpg" />
-          <img class="behind-poster-book" src="/images/4.jpg" />
         </div>
 
-        <div class="info-block-book">
-          <a class="hover-info-block-book" href="/"></a>
-          <div class="name-block-book">Моя жизнь, мои достижения</div>
-          <a href="/" class="author-block-book">Дмитрий Глуховский</a>
-          <div class="price-info-block-book"><div class="buy-price-info-block-book">150 РУБ.</div><div class="rental-price-info-block-book">20 РУБ.</div></div>
-          <div class="bookmark-info-block-book"><div></div></div>
-
-          <div class="raiting-info-block-book">
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-          </div>
+        <!-- Левое поле -->
+        <!--<? if($path == 'book.php' || $path == 'reviews.php' || $path == 'user.php') : ?>-->
+        <%= render 'shared/left_menu' if (params[:controller] == 'users' and params[:action] == 'show') or (params[:controller] == 'abstract_books' and params[:action] == 'show')%>
+        <!--<? endif; ?>-->
+        <div class="main-column-catalog" style="text-align: right">
+          <!-- require 'views/' . $path; -->
+          <%=yield%>
         </div>
-
-      </div>
-
-
-    </div>
-  </body>
+<%#console%>
+</body>
 </html>

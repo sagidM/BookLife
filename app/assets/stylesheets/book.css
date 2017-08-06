@@ -1,10 +1,10 @@
 @font-face {
 	font-family: Myriad Pro;
-	src: url(../fonts/MyriadPro-Regular.otf);
+	src: url(/fonts/MyriadPro-Regular.otf);
 }
 @font-face {
 	font-family: MProCond;
-	src: url(../fonts/MyriadPro-Cond.otf);
+	src: url(/fonts/MyriadPro-Cond.otf);
 }
 body {
     margin: 0;
@@ -19,8 +19,8 @@ body {
     position: fixed;
     top: 0;
     animation: spin .3s cubic-bezier(0.0,0.0,0.2,1);
+    z-index: 20;
 }
-
 @keyframes spin {
 	from {
 		left: -360;
@@ -29,14 +29,10 @@ body {
 		left: 0;
 	}
 }
-
-
 .main-column {
     position: relative;
     animation: spin-2 .3s cubic-bezier(0.0,0.0,0.2,1);
 }
-
-
 @keyframes spin-2 {
 	from {
 		top: 250px;
@@ -47,8 +43,6 @@ body {
 		opacity: 1;
 	}
 }
-
-
 .book-column-header {
     height: 60px;
     width: 100%;
@@ -57,10 +51,6 @@ body {
     box-shadow: 0px 2px 90px 35px rgba(0, 0, 0, 0.75);
     position: relative;
     z-index: 4;
-}
-.book-art {
-    width: 100%;
-    height: 225px;
 }
 .img-book-art {
     width: 100%;
@@ -73,14 +63,14 @@ body {
 .img-book-art>img {
     width: 100%;
 }
-.book-art {
+.book-art, .user-art {
     width: 100%;
     height: 235px;
     position: relative;
     transition: height .3s;
     cursor: pointer;
 }
-.book-art:hover {
+.book-art:hover, .user-art:hover {
     height: 350px;
 }
 .dark-book-art {
@@ -109,7 +99,7 @@ body {
     transition: background-color .3s, box-shadow .3s;
 }
 .button-rev-menu>div {
-    background-image: url(../images/ico/Menu.svg);
+    background-image: url(/images/ico/Menu.svg);
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
@@ -133,7 +123,7 @@ body {
     box-shadow: 1px 1px 1px 0px rgba(23, 53, 53, 0.26);
 }
 a.logo-quick>div {
-    background-image: url(../images/ico/kn.png);
+    background-image: url(/images/ico/kn.png);
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
@@ -157,7 +147,8 @@ a.logo-quick>div {
     position: relative;
 }
 
-.book-panel::after {
+
+.book-panel::after, .user-panel::after {
     content: '';
     width: 0;
     top: -27px;
@@ -219,13 +210,13 @@ a.logo-quick>div {
 }
 
 .button-reveal>div {
-    background-image: url(../images/ico/reveal-func.png);
+    background-image: url(/images/ico/reveal-func.png);
 }
 .button-control-share>div {
-    background-image: url(../images/ico/share.png);
+    background-image: url(/images/ico/share.png);
 }
 .button-control-bookmark>div {
-    background-image: url(../images/ico/bookmark-white.png);
+    background-image: url(/images/ico/bookmark-white.png);
 }
 
 .book-indicators>li {
@@ -272,16 +263,16 @@ a.logo-quick>div {
     height: 100%;
 }
 .img-indicators-raiting>div {
-    background-image: url(../images/ico/raiting-white.png);
+    background-image: url(/images/ico/raiting-white.png);
 }
 .img-indicators-add>div {
-    background-image: url(../images/ico/add-white.png);
+    background-image: url(/images/ico/add-white.png);
 }
 .img-indicators-comment>div {
-    background-image: url(../images/ico/comment-white.png);
+    background-image: url(/images/ico/comment-white.png);
 }
 .img-indicators-quotes>div {
-    background-image: url(../images/ico/quotes-white.png);
+    background-image: url(/images/ico/quotes-white.png);
 }
 
 .avatar-book-author {
@@ -332,10 +323,10 @@ a.logo-quick>div {
     height: 100%;
 }
 .img-books-indicators-book-author>div {
-    background-image: url(../images/ico/books-gray.png);
+    background-image: url(/images/ico/books-gray.png);
 }
 .img-quotes-indicators-book-author>div {
-    background-image: url(../images/ico/quote-grey.png);
+    background-image: url(/images/ico/quote-grey.png);
 }
 .button-read {
     width: 144px;
@@ -376,6 +367,8 @@ a.logo-quick>div {
 .button-subscribers {
     width: 100%;
     float: left;
+    user-select: none;
+    cursor: pointer;
 }
 .icons-subscribers>div {
     width: 33px;
@@ -394,22 +387,28 @@ a.logo-quick>div {
     margin: 15px 30px;
     float: left;
 }
-.one-icon-subscribers {
+
+.icons-subscribers>div:nth-of-type(1) {
+    z-index: 5;
+}
+.icons-subscribers>div:nth-of-type(2) {
     z-index: 4;
 }
-.two-icon-subscribers {
+.icons-subscribers>div:nth-of-type(3) {
     z-index: 3;
 }
-.three-icon-subscribers {
+.icons-subscribers>div:nth-of-type(4) {
     z-index: 2;
 }
-.four-icon-subscribers {
+.icons-subscribers>div:nth-of-type(5) {
     z-index: 1;
 }
+
+
 .numb-subscribers {
     font-size: 13px;
     float: left;
-    margin: 27px 0px;
+    margin: 25px 0px;
     color: #a4a4a4;
 }
 
@@ -450,19 +449,8 @@ a.button-get-book>span {
     color: #2c2c2c;
     font-weight: 600;
 }
-.menu-second-level>li {
-    text-align: right;
-    padding: 5px 20px;
-}
-li.test {
-    padding: 18px 20px 14px 50px;
-    border: 4px solid;
-    border-width: 0 0 4px 0;
-    background-color: #eeeeee;
-    margin-bottom: 5px;
-}
 .main-column {
-    margin: 25px 25px 0 385px;
+    margin: 45px 25px 0 125px;
 }
 .block-info-book {
     width: 560px;
@@ -592,7 +580,7 @@ li.test {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(../images/ico/raiting.png);
+    background-image: url(/images/ico/raiting.png);
 }
 .book-evaluation {
     float: left;
@@ -689,23 +677,23 @@ li.test {
     margin-bottom: 6px;
 }
 .img-ebook-block {
-    background-image: url(../images/ico/ipadTest.png);
+    background-image: url(/images/ico/ipadTest.png);
 }
 .img-aubook-block {
-    background-image: url(../images/ico/icoHePhon.png);
+    background-image: url(/images/ico/icoHePhon.png);
 }
 .img-pbook-block {
-    background-image: url(../images/ico/icoEBook.png);
+    background-image: url(/images/ico/icoEBook.png);
 }
 
 .category-book>div:hover>.img-ebook-block {
-    background-image: url(../images/ico/BlackipadTest.png);
+    background-image: url(/images/ico/BlackipadTest.png);
 }
 .category-book>div:hover>.img-aubook-block {
-    background-image: url(../images/ico/BlackicoHePhon.png);
+    background-image: url(/images/ico/BlackicoHePhon.png);
 }
 .category-book>div:hover>.img-pbook-block {
-    background-image: url(../images/ico/BlackicoEBook.png);
+    background-image: url(/images/ico/BlackicoEBook.png);
 }
 
 
@@ -808,7 +796,7 @@ li.test {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(../images/ico/raiting-yellow.png);
+    background-image: url(/images/ico/raiting-yellow.png);
 }
 .evaluation-author-reviews>div {
     width: 12px;
@@ -843,7 +831,7 @@ li.test {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(../images/ico/raiting-yellow.png);
+    background-image: url(/images/ico/raiting-yellow.png);
 }
 .numb-book-another-edition {
     font-size: 11px;
@@ -884,7 +872,7 @@ li.test {
     box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
 }
 .fragment-book-another-edition:hover>.ico-fragment-book-another-edition>div {
-    background-image: url(../images/ico/play_2-white.png);
+    background-image: url(/images/ico/play_2-white.png);
 }
 .fragment-book-another-edition:hover>.text-fragment-book-another-edition {
     color: white;
@@ -910,7 +898,7 @@ li.test {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(../images/ico/play_2.png);
+    background-image: url(/images/ico/play_2.png);
 }
 .text-fragment-book-another-edition {
     float: right;
@@ -935,10 +923,10 @@ li.test {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(../images/ico/bookmark-gray.png);
+    background-image: url(/images/ico/bookmark-gray.png);
 }
 .bookmark-book-another-edition:hover>div {
-    background-image: url(../images/ico/bookmark-white.png);
+    background-image: url(/images/ico/bookmark-white.png);
 }
 
 .book-another-edition>.poster-book-another-edition>.go-over-book-another-edition {
@@ -958,7 +946,7 @@ li.test {
     width: 19px;
     height: 19px;
     margin: 16px;
-    background-image: url(../images/ico/open.png);
+    background-image: url(/images/ico/open.png);
 }
 .price-book-another-edition {
     font-size: 11px;
