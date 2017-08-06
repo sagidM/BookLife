@@ -13,7 +13,6 @@ body {
 }
 
 
-
 .panel-aubook-player {
     width: 100%;
     height: 90px;
@@ -23,7 +22,6 @@ body {
     background-color: white;
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.55);
 }
-
 .play-panel-aubook-player {
     width: 60px;
     height: 60px;
@@ -32,23 +30,20 @@ body {
 
 }
 .play-panel-aubook-player>div {
-    background-image: url(../images/ico/play.png);
+    background-image: url(/images/ico/play.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
 }
-
-
 .rewind-panel-aubook-player {
     width: 14px;
     height: 14px;
     cursor: pointer;
     margin: 38px 11px;
 }
-
 .rewind-panel-aubook-player>div {
-    background-image: url(../images/ico/rewind.png);
+    background-image: url(/images/ico/rewind.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -60,9 +55,8 @@ body {
     cursor: pointer;
     margin: 38px 11px;
 }
-
 .forward-panel-aubook-player>div {
-    background-image: url(../images/ico/forward.png);
+    background-image: url(/images/ico/forward.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -75,7 +69,6 @@ body {
     display: table;
     margin: 0 auto;
 }
-
 .flash-rewind-panel-aubook-player {
     width: 22px;
     height: 14px;
@@ -83,7 +76,7 @@ body {
     margin: 38px 11px;
 }
 .flash-rewind-panel-aubook-player>div {
-    background-image: url(../images/ico/flash-rewind.png);
+    background-image: url(/images/ico/flash-rewind.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -96,7 +89,7 @@ body {
     margin: 38px 11px;
 }
 .flash-forward-panel-aubook-player>div {
-    background-image: url(../images/ico/flash-forward.png);
+    background-image: url(/images/ico/flash-forward.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -109,7 +102,7 @@ body {
     margin: 38px 11px;
 }
 .phrase-forward-panel-aubook-player>div {
-    background-image: url(../images/ico/phrase-forward.png);
+    background-image: url(/images/ico/phrase-forward.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -122,13 +115,12 @@ body {
     margin: 38px 11px;
 }
 .phrase-rewind-panel-aubook-player>div {
-    background-image: url(../images/ico/phrase-rewind.png);
+    background-image: url(/images/ico/phrase-rewind.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
 }
-
 img.test-post {
     height: 270px;
     float: left;
@@ -168,7 +160,6 @@ img.test-post {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
-
 .panel-player-rewind-strip {
 	width: 100%;
     height: 5px;
@@ -222,7 +213,6 @@ img.test-post {
     border-radius: 2px;
     user-select: none;
 }
-
 .audio-player-button-left>div, .audio-player-button-left>div>div {
     float: left;
     cursor: pointer;
@@ -236,14 +226,12 @@ img.test-post {
     font-size: 14px;
     user-select: none;
 }
-
-
 .img-speed-button-audio-player-button-left {
     width: 18px;
     height: 18px;
 }
 .img-speed-button-audio-player-button-left>div {
-    background-image: url(../images/ico/timer.png);
+    background-image: url(/images/ico/timer.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -255,7 +243,7 @@ img.test-post {
     height: 18px;
 }
 .img-timer-button-audio-player-button-left>div {
-    background-image: url(../images/ico/speed.png);
+    background-image: url(/images/ico/speed.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -276,7 +264,6 @@ img.test-post {
     top: 39px;
     right: 35px;
 }
-
 .audio-player-button-right>div {
     height: 18px;
     float: left;
@@ -289,10 +276,10 @@ img.test-post {
     height: 100%;
 }
 .curtail-button-audio-player-button-right>div {
-    background-image: url(../images/ico/curtail.png);
+    background-image: url(/images/ico/curtail.png);
 }
 .speaker-button-audio-player-button-right>div {
-    background-image: url(../images/ico/speaker.png);
+    background-image: url(/images/ico/speaker.png);
 }
 .speaker-button-audio-player-button-right {
     width: 20px;
@@ -301,8 +288,6 @@ img.test-post {
     width: 18px;
     margin-left: 40px;
 }
-
-
 .current-recording-time, .end-time-of-recording {
     position: absolute;
     top: 10px;
@@ -315,21 +300,18 @@ img.test-post {
 .end-time-of-recording {
     right: 7px;
 }
-
 .head-panel-interaction-with-contents-of-book {
     position: absolute;
     top: 5px;
     right: 4px;
 }
-
 .expand-contents-of-books>div {
-    background-image: url(../images/ico/expand.png);
+    background-image: url(/images/ico/expand.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
 }
-
 div.expand-contents-of-books {
     width: 12px;
     height: 12px;
@@ -362,7 +344,7 @@ div.expand-contents-of-books {
     height: 16px;
 }
 .search-in-audiobook>div {
-    background-image: url(../images/ico/search.png);
+    background-image: url(/images/ico/search.png);
     transition: background-image .3s;
 }
 .notes-in-audiobook {
@@ -370,14 +352,14 @@ div.expand-contents-of-books {
     height: 16px;
 }
 .notes-in-audiobook>div {
-    background-image: url(../images/ico/notes.png);
+    background-image: url(/images/ico/notes.png);
 }
 .bookmarks-audiobooks {
     width: 11px;
     height: 16px;
 }
 .bookmarks-audiobooks>div {
-    background-image: url(../images/ico/bookmark.png);
+    background-image: url(/images/ico/bookmark.png);
     transition: background-image .3s;
 }
 .content-audiobook {
@@ -385,22 +367,19 @@ div.expand-contents-of-books {
     height: 16px;
 }
 .content-audiobook>div {
-    background-image: url(../images/ico/chapters.png);
+    background-image: url(/images/ico/chapters.png);
 }
-
 .chapter-list {
     list-style-type: none;
     margin: 55px 20px;
     padding: 0;
 }
-
 .bookmarks-audiobooks:hover>div {
-    background-image: url(../images/ico/bookmark-red.png);
+    background-image: url(/images/ico/bookmark-red.png);
 }
 .search-in-audiobook:hover>div {
-    background-image: url(../images/ico/search-hover.png);
+    background-image: url(/images/ico/search-hover.png);
 }
-
 .li-chapter-list {
     color: #888888;
     font-size: 14px;
@@ -416,7 +395,6 @@ div.expand-contents-of-books {
 .time-li-chapter-list {
     float: right;
 }
-
 .active-books>img {
     width: 60px;
 	position: absolute;

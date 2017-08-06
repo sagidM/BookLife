@@ -19,7 +19,6 @@
 
 
 document.addEventListener('turbolinks:load', function(e) {
-    console.log(e)
     $(".login>div").click(function() {
         $(".background-subscription").addClass('open-background-subscription');
     });
