@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Session, type: :model do
-  before :all { @user = FactoryGirl.create(:user) }
-  after :all { @user.destroy }
+  before(:all) { @user = FactoryGirl.create(:user) }
+  after(:all) { @user.destroy }
 
   let(:user) {@user}
 
