@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     else
       json = User.limit(count).where(user_hash)
     end
-    render json: json.as_json(methods: :image)
+    render json: json.as_json(methods: :image, except: :password_digest)
   end
 
   def create
