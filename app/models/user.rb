@@ -14,6 +14,11 @@ class User < ApplicationRecord
     Digest::SHA1.hexdigest str
   end
 
+  def image
+    # TODO: make small image
+    {icon: avatar}
+  end
+
   private
     def bdate_cannot_be_in_the_future
       unless bdate.nil?

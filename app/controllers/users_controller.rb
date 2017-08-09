@@ -27,6 +27,18 @@ class UsersController < ApplicationController
     redirect_to action: :edit_current_user
   end
 
+  def find
+    count = params[:count]
+    user_hash = params.require(:user).permit(:email, :first_name, :surname, :bdate)
+
+    if count.nil?
+      json = User.find_by(user_hash)
+    else
+      json = User.limit(count).where(user_hash)
+    end
+    render json: json.as_json(methods: :image)
+  end
+
   def create
     @user = User.new params_user
     if @user.save

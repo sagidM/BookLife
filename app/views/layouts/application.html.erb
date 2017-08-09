@@ -16,38 +16,59 @@
   border-color: red;
 }
 </style>
-
   </head>
 
 <body>
+
   <div style="text-align: right;">
+    <%=link_to 'Books', books_path%>
     <%=link_to 'Main', root_path%>
     <%=link_to 'Register', signup_path%>
     <%=link_to 'Login', signin_path%>
     <%=link_to 'Signout', signout_path, method: :delete%>
     <%=link_to 'Users', users_path%>
     <%=link_to 'Settings', current_user_settings_path%>
-    <%=link_to 'Books', books_path%>
   </div>
   <div class="background-subscription">
-    <form action="" id="feedback" name="subscription" method="post" class="for-the-subscription-window">
-      <h1>Вход или регистрация</h1>
-      <div id="answer"></div>
-      <div class="credential-mail">
-        <img src="/images/user.jpg" />
-        <input type="text" name="email" id="email" class="field-for-entering-personal-data" required="" placeholder="Ваша почта">
-      </div>
-      <div class="fields-for-name">
-        <input type="text" name="name" id="name" style="margin-right: 10px;" class="field-for-entering-personal-data" required="" placeholder="Ваше имя">
-        <input type="text" name="surname" id="surname" class="field-for-entering-personal-data" required="" placeholder="Ваше фамилия">
-      </div>
-      <input type="text" name="learned" id="learned" class="field-for-entering-personal-data" required="" placeholder="Откуда Вы о нас узнали?">
-      <input type="text" name="password" id="password" class="field-for-entering-personal-data" required="" placeholder="Пароль">
-      <!--<input type="submit" name="ok" value="Отправить" class="">-->
-      <button class="button-to-send" name="login">Вход</button>
-      <button class="button-to-send" name="registration">Регистрация</button>
-      <p>Регистрируясь, я принимаю <a href="/">условия использования</a></p>
-    </form>
+    <!--authform.(coffee|scss)-->
+    <%unless signed_in?%>
+      <%=form_for User.new, url: signup_path, html: {class: 'for-the-subscription-window'}, authenticity_token: false do |f|%>
+          <%=hidden_field_tag 'authenticity_token', form_authenticity_token%>
+          <h1>Вход или регистрация</h1>
+          <div id="answer"></div>
+          <div class="credential-mail">
+            <img id="user_icon_form" class="user-icon" />
+            <%=f.text_field :email, type: :email, class: 'field-for-entering-personal-data email', placeholder: 'Ваша почта' %>
+          </div>
+          <%=f.password_field :password, class: 'field-for-entering-personal-data', placeholder: 'Пароль' %>
+          <div id="registration_fields" class="registration-fields" data-action="sign_in">
+            <div class="fields-for-name">
+              <%=f.text_field :first_name, class: 'field-for-entering-personal-data', placeholder: 'Ваше имя', style: 'margin-right: 10px;' %>
+              <%=f.text_field :surname, class: 'field-for-entering-personal-data', placeholder: 'Ваша фамилия' %>
+            </div>
+            <!--<input type="text" name="learned" id="learned" class="field-for-entering-personal-data" placeholder="[Откуда Вы о нас узнали?]">-->
+          </div>
+          <input type="submit" id="signing" class="button-to-send" data-sign-in="Вход" data-sign-up="Регистрация" value="Регистрация">
+      <%end%>
+    <%end%>
+    <!--<form action="" id="feedback" name="subscription" method="post" class="for-the-subscription-window">-->
+      <!--<h1>Вход или регистрация</h1>-->
+      <!--<div id="answer"></div>-->
+      <!--<div class="credential-mail">-->
+        <!--<img src="/images/user.jpg" />-->
+        <!--<input type="text" name="email" id="email" class="field-for-entering-personal-data" required="" placeholder="Ваша почта">-->
+      <!--</div>-->
+      <!--<div class="fields-for-name">-->
+        <!--<input type="text" name="name" id="name" style="margin-right: 10px;" class="field-for-entering-personal-data" required="" placeholder="Ваше имя">-->
+        <!--<input type="text" name="surname" id="surname" class="field-for-entering-personal-data" required="" placeholder="Ваше фамилия">-->
+      <!--</div>-->
+      <!--<input type="text" name="learned" id="learned" class="field-for-entering-personal-data" required="" placeholder="Откуда Вы о нас узнали?">-->
+      <!--<input type="text" name="password" id="password" class="field-for-entering-personal-data" required="" placeholder="Пароль">-->
+      <!--&lt;!&ndash;<input type="submit" name="ok" value="Отправить" class="">&ndash;&gt;-->
+      <!--<button class="button-to-send" name="login">Вход</button>-->
+      <!--<button class="button-to-send" name="registration">Регистрация</button>-->
+      <!--<p>Регистрируясь, я принимаю <a href="/">условия использования</a></p>-->
+    <!--</form>-->
     <div class="closed-background-subscription"></div>
   </div>
 
@@ -95,7 +116,13 @@
         <div class="head-reveal-history-of-reading"><div></div></div>
       </div>
 
-      <div class="login"><div>ВХОД ИЛИ РЕГИСТРАЦИЯ</div></div>
+      <div id="open_auth_form" class="login">
+        <%if signed_in?%>
+            <%=link_to 'Signout', signout_path, method: :delete, style: 'color: black; font-size: 12px;'%>
+        <%else%>
+          <div>ВХОД ИЛИ РЕГИСТРАЦИЯ</div>
+        <%end%>
+      </div>
 
       <div class="head-user-panel">
         <img class="img-head-user-panel" src="/images/user.jpg" />

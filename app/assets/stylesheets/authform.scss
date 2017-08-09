@@ -1,0 +1,15 @@
+.registration-fields[data-action="sign_in"]{
+  display: none;
+}
+.for-the-subscription-window{
+  &[data-email-validation=invalid] .email{
+    background: rgb(226, 226, 226);
+    color: #f50000;
+  }
+  .user-icon{
+    display: none;
+  }
+  &[data-email-validation=found] .user-icon{
+    display: block;
+  }
+}

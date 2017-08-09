@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   match '/login', to: 'sessions#new', via: :get, as: :signin
   match '/login', to: 'sessions#create', via: :post
   match '/signout', to: 'sessions#destroy', via: :delete
+  get '/users/find'
 
 
   # UsersController
