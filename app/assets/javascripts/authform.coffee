@@ -26,7 +26,7 @@ document.addEventListener "turbolinks:load", ->
             else
               form.dataset.emailValidation = 'found'
               submit.value = submit.dataset.signIn
-              icon.src = user.image.icon unless user.image.icon is null
+              icon.src = user.image.thumbnail unless user.image.thumbnail is null
           )
         , if inputNow-3000 > inputLastTime then 0 else 200)
         inputLastTime = inputNow

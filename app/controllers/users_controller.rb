@@ -1,5 +1,3 @@
-p 'users_controller initialize'
-# fdssda
 class UsersController < ApplicationController
   before_action :signed_in, only: [:edit_current_user]
 
@@ -22,8 +20,37 @@ class UsersController < ApplicationController
   end
 
   def update_current_user
-    params_user.delete :password
-    current_user.update_columns params_user.to_h
+    user_fields = user_params
+    user_fields.delete :password_digest
+    user_fields.delete :created_at
+
+    new_avatar = params[:user][:avatar]
+    old_avatar = nil
+    unless new_avatar.nil?
+      if new_avatar.size > 10.megabyte
+        flash[:image] = 'image is too big'
+        redirect_to action: :edit_current_user
+        return
+      end
+      user_fields[:avatar] = new_avatar.original_filename
+      old_avatar = current_user.avatar  # never nil
+    end
+    # if params[:user][:remote_avatar_url]
+    #   p params[:user][:remote_avatar_url]
+    #   current_user.avatar = params[:user][:remote_avatar_url]
+    #   current_user.avatar.store!
+    #   redirect_to action: :edit_current_user
+    #   return
+    # end
+
+    ActiveRecord::Base.transaction do
+      current_user.update_columns user_fields.merge(updated_at: Time.now).to_h
+      if old_avatar
+        old_avatar.remove!
+        current_user.avatar = new_avatar
+        current_user.avatar.store!
+      end
+    end
     redirect_to action: :edit_current_user
   end
 
@@ -40,7 +67,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new params_user
+    @user = User.new user_params
     if @user.save
       sign_in @user, params[:user][:remember]
       redirect_to root_path
@@ -56,13 +83,13 @@ class UsersController < ApplicationController
   end
 
   private
-    def params_user
+    def user_params
       params.require(:user).permit :email, :password, :first_name, :surname, :bdate
     end
     def signed_in
       unless signed_in?
-        flash[:error] = 'Not authenticated'
-        redirect_to signin_path
+        flash[:message] = 'You\'re not authenticated'
+        redirect_to signin_path(request.path)
       end
     end
 end

@@ -1,0 +1,27 @@
+<h2>Добавление автора</h2>
+
+<%errors = flash[:errors]%>
+<%errors.default = nil%>
+
+<%=form_for @author, url: new_author_path do |f|%>
+    <%=f.text_field :first_name, placeholder: 'First name'%> <%=errors[:first_name]%>
+    <br>
+    <%=f.text_field :surname, placeholder: 'Last name'%> <%=errors[:surname]%>
+    <br>
+    <%=f.text_field :patronymic, placeholder: 'Patronymic'%> <%=errors[:patronymic]%>
+    <br>
+    Birthday <%=f.text_field :bdate, type: :date%> <%=errors[:bdate]%>
+    <br>
+    <br>
+    <%=f.label :avatar do%>
+        Avatar <i style="font-size: 11px;">(6 mg)</i>
+    <%end%>
+    <%=f.file_field :avatar%> <%=errors[:avatar]%>
+    <br>
+    or url
+    <%=f.text_field :remote_avatar_url, placeholder: 'http://...'%>
+    <br>
+    <br>
+    <%=f.button 'Add author', name: nil%>
+<%end%>
+<hr>

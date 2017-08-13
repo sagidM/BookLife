@@ -1,0 +1,24 @@
+<h2>Author list</h2>
+<form action="<%=authors_path%>" method="get">
+  <%=text_field_tag :q, @query%>
+  <%=button_tag 'Search', name: nil%>
+</form>
+
+<br>
+<%=link_to 'Add author', new_author_path, style: 'color: #599000'%>
+
+<div>
+  <%for author in @authors%>
+      <div>
+        <p>
+          <%=link_to "#{author.first_name} #{author.surname} #{author.patronymic}", author_path(author)%>
+          <b style="font-size: 12px;">
+            <%=link_to 'Delete', author_path(author), method: :delete, style: 'color: #bd3434;',
+                       data: {confirm: "Удаление автора также удалит все книги написанные им.\nВы уверены, что хотите удалить всё это?"}%>
+          </b>
+        </p>
+        <p><%=image_tag author.avatar%></p>
+        <hr>
+      </div>
+  <%end%>
+</div>

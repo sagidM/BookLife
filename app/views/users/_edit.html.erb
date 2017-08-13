@@ -1,5 +1,12 @@
 <%=form_for @user, url: {action: :update_current_user} do|f|%>
-    <%=f.text_field :first_name, placeholder: 'First name'%>
-    <%=f.text_field :surname, placeholder: 'Surname'%>
-    <%=f.submit%>
+    <div>
+      <%=f.text_field :first_name, placeholder: 'First name'%>
+      <%=f.text_field :surname, placeholder: 'Surname'%>
+    </div>
+    <div>
+      <%=f.file_field :avatar, accept: 'image/*'%>
+      or put url
+      <%= f.text_field :remote_avatar_url, style: 'width: 300px' %>
+    </div>
+    <%=f.submit name: nil%>
 <%end%>

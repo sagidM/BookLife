@@ -56,6 +56,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'factory_girl_rails', '~> 4.8'
 gem 'faker', '~> 1.8'
-gem 'will_paginate'
-gem 'jquery-rails'
+gem 'will_paginate', '~> 3.0'
+gem 'jquery-rails', '~> 4.0'
 gem 'active_record_union'
+
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.0'
+gem 'fog-aws', '~> 1.0'
+# gem 'carrierwave_backgrounder'
+gem 'sidekiq', '~> 5.0'
+gem 'dotenv-rails'
+# gem 'carrierwave_direct'

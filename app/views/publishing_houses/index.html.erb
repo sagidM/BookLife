@@ -1,0 +1,31 @@
+<h1>Список издательств</h1>
+
+<form action="<%publishing_houses_path%>" method="get">
+    <%=text_field_tag :q, @query, placeholder: 'Serch...'%>
+    <%=submit_tag 'Search', name: nil%>
+</form>
+
+<hr>
+<%=link_to 'Add one', new_publishing_house_path, style: 'background-color: #3a7767;
+  color: white;
+  box-shadow: 0 0 3px 5px rgb(58, 119, 103);'%>
+<br><br>
+
+<ul>
+<%@publishing_houses.each do |ph|%>
+    <li>
+      <%
+        link = ph.logo_url
+        i = link.index 'http', 5
+        link = URI.unescape(link[i..-1]) if i
+      %>
+      <!--<%=link.index 'http', 5%>-->
+      <%=image_tag link, style: 'width: 50px;'%>
+      <%=link_to 'Delete', publishing_house_path(ph), method: :delete,
+                 data: {confirm: "#Данное действие удалит издательство и все книги, которые ему принадлежат.\nВы уверены в своих намерениях?"},
+                 style: 'color: #af4000; margin-left: 50px;'%>
+      <%=content_tag :p, "#{ph.name} (id = #{ph.id})"%>
+      <hr>
+    </li>
+<%end%>
+</ul>

@@ -14,9 +14,15 @@ class User < ApplicationRecord
     Digest::SHA1.hexdigest str
   end
 
+  mount_uploader :avatar, ImageUploader
+
   def image
     # TODO: make small image
-    {icon: avatar}
+    {thumbnail: avatar}
+  end
+
+  def thumbnail
+    avatar
   end
 
   private

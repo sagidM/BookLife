@@ -1,4 +1,6 @@
 <%=provide :common_lower_title, 'книга'%>
+<%=link_to 'Add new book', new_book_path%>
+<br>
 <%=@ebooks.size%>
 <%=@audiobooks.size%>
 <%=render 'shared/books'%>

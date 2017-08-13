@@ -18,7 +18,7 @@
       </div>
 
 
-      <% if(request.path.start_with?('/books')) %>
+      <% if params[:controller] == 'books' and params[:action] == 'show' %>
           <ul class="book-indicators">
             <li class="indicators-raiting"><div class="img-indicators-raiting"><div></div></div><div class="number-indicators-raiting">4,5</div></li>
             <li class="indicators-add"><div class="img-indicators-add"><div></div></div><div class="number-indicators-add">237</div></li>
@@ -28,40 +28,6 @@
           <img class="img-book-poster" src="<%=@book.poster%>" />
           <div class="dark-book-art"></div>
           <div class="img-book-art"><img src="<%=@book.background_stable_image%>" /></div>
-
-          <!-- На странице книги -->
-          <div class="book-panel">
-            <h1 class="book-name">Дорога</h1>
-            <a href="/" class="book-author">
-              <div class="avatar-book-author"><img src="/images/author.jpg" /></div>
-              <div >
-                <div class="name-book-author">Кормак Маккарти</div>
-                <div class="indicators-book-author">
-                  <div class="books-indicators-book-author"> <div class="img-books-indicators-book-author"><div></div></div> <div class="numb-books-indicators-book-author">2</div> </div>
-                  <div class="quotes-indicators-book-author"> <div class="img-quotes-indicators-book-author"><div></div></div> <div class="numb-quotes-indicators-book-author">12</div> </div>
-                </div>
-              </div>
-            </a>
-
-            <div class="book-read">
-              <div class="button-read"><div>ЧИТАТЬ</div></div>
-              <div class="status-book-read">отрывок</div>
-            </div>
-            <div class="button-subscribers">
-              <div class="icons-subscribers">
-                <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
-                <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
-                <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
-                <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
-              </div>
-              <div class="numb-subscribers">140 читают</div>
-            </div>
-            <div class="buttons-get-book">
-              <a href="/" class="button-get-book">КУПИТЬ ЗА <span>100 р.</span></a>
-              <a href="/" class="button-get-book">ПРОКАТ ЗА <span>20 р.</span></a>
-              <a href="/" class="button-get-book">ПОДПИСКА ЗА <span>190 р.</span></a>
-            </div>
-          </div>
       <%end%>
 
       <% if params[:controller] == 'users' and params[:action] == 'show' %>
@@ -90,9 +56,46 @@
             </div>
           </div>
       <%end%>
+
     </div>
 
+    <% if params[:controller] == 'books' and params[:action] == 'show' %>
+      <!-- На странице книги -->
+      <div class="book-panel">
+        <h1 class="book-name"><%=@book.name%></h1>
+        <a href="/" class="book-author">
+          <div class="avatar-book-author"><img src="<%=@book.authors.first.avatar%>" /></div>
+          <div >
+            <%for author in @book.authors%>
+              <div class="name-book-author"><%="#{author.first_name} #{author.surname}"%></div>
+            <%end%>
+            <div class="indicators-book-author">
+              <div class="books-indicators-book-author"> <div class="img-books-indicators-book-author"><div></div></div> <div class="numb-books-indicators-book-author">2</div> </div>
+              <div class="quotes-indicators-book-author"> <div class="img-quotes-indicators-book-author"><div></div></div> <div class="numb-quotes-indicators-book-author">12</div> </div>
+            </div>
+          </div>
+        </a>
 
+        <div class="book-read">
+          <div class="button-read"><div>ЧИТАТЬ</div></div>
+          <div class="status-book-read">отрывок</div>
+        </div>
+        <div class="button-subscribers">
+          <div class="icons-subscribers">
+            <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
+            <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
+            <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
+            <div class="icon-subscribers"><img src="/images/user.jpg" /></div>
+          </div>
+          <div class="numb-subscribers">140 читают</div>
+        </div>
+        <div class="buttons-get-book">
+          <a href="/" class="button-get-book">КУПИТЬ ЗА <span>100 р.</span></a>
+          <a href="/" class="button-get-book">ПРОКАТ ЗА <span>20 р.</span></a>
+          <a href="/" class="button-get-book">ПОДПИСКА ЗА <span>190 р.</span></a>
+        </div>
+      </div>
+    <%end%>
 
 
 

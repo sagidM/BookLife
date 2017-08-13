@@ -1,3 +1,16 @@
+class Object
+  # Helper for debugging
+  # It does just methods - Object.methods
+  def self_methods(method_name = nil)
+    m = methods - Object.methods
+    if method_name.nil?
+      m
+    else
+      m.select{|m| m.to_s.include? method_name.to_s}
+    end
+  end
+end
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

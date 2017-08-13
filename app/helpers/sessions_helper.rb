@@ -5,7 +5,7 @@ module SessionsHelper
     token = User.encrypt(cook[:remember_token] = User.generate_unique_secure_token)
     session = Session.new remember_token: token, ip_address: request.remote_ip, user: user
     session.save!
-    current_session = session
+    @current_session = session
   end
 
   def sign_out
@@ -18,10 +18,10 @@ module SessionsHelper
       uid, token = cookies[:user_id], cookies[:remember_token]
       return if uid.nil? or token.nil?
 
-      session = Session.find_by user_id: uid, remember_token: User.encrypt(token)
+      session = Session.eager_load(:user).find_by user_id: uid, remember_token: User.encrypt(token)
       if session.nil?
         delete_session_cookies
-        p 'log'
+        p 'session is deleted'
       end
       @current_session = session
     end

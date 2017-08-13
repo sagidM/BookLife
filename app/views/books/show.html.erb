@@ -1,6 +1,7 @@
 <%=provide :common_lower_title, 'книга'%>
-
-﻿<div class="main-column">
+<div class="main-column">
+  <%=link_to 'Delete this book', book_path(@book), method: :delete,
+             data: {confirm: "Вы уверены, что хотите удалить данную книгу?"}%>
   <div class="top-block-main-column">
     <div class="block-info-book">
       <div class="text-info-book">

@@ -106,7 +106,7 @@ def populate_abstract_books_and_authors(count)
     params = {
         abstract_book: AbstractBook.new(original_name: Faker::Book.title,
                                         published_at: Faker::Date.between(from, to)),
-        author: authors.sample,
+        authors: authors.sample,
         position: i
     }
 

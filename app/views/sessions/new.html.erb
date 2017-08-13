@@ -1,4 +1,5 @@
-<%=form_for @user, url: {action: :create} do |f|%>
+<p><%=flash[:message]%></p>
+<%=form_for @user, url: {action: :create, redirect_to: params[:redirect_to]} do |f|%>
   <%=@user.errors.count%>
   <%=f.text_field :email, placeholder: 'Email'%>
   <%=f.password_field :password, placeholder: 'Password'%>

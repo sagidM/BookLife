@@ -1,0 +1,91 @@
+<h1>Добавление книги</h1>
+
+<%if !flash[:errors].blank?%>
+    <%=flash[:errors].inspect%>
+<%end%>
+
+<script type="text/javascript" charset="utf-8">
+angular.module('main', []).controller('addBookCtrl', function ($scope, $sce) {
+  var converter = new showdown.Converter();
+  $scope.plainText = '<%=j @book.description%>'
+  $scope.convertToHtml = function() {
+      $scope.width = 500;
+      $scope.height = 300;
+      var html = converter.makeHtml($scope.plainText);
+      $scope.markdownText = $sce.trustAsHtml(html);
+  };
+});
+</script>
+<br>
+
+<%#=params[:book].inspect%>
+
+<div ng-controller="addBookCtrl">
+  <%=form_for @book, url: new_book_path  do |f|%>
+      <%=f.text_field :name, placeholder: 'Book name'%>
+      <div>
+        <%=f.text_area :description, placeholder: 'Description',
+                            style: 'min-width: 500px; min-height: 200px;width: {{width}}; height: {{height}};',
+                            'ng-model' => 'plainText', 'ng-change' => 'convertToHtml()', 'ng-resize' => 'sad'%>
+        <div id="markdorn_description" ng-bind-html="markdownText"
+             style="display: inline-block; min-width: 400px; min-height: 200px; position: absolute; outline: 1px solid;"></div>
+      </div>
+      <div>
+        <%=f.radio_button :type, 'Ebook' %>
+        <%= f.label :type_ebook, 'Ebook' %>
+        <br>
+        <%= f.radio_button :type, 'Audiobook' %>
+        <%= f.label :type_audiobook, 'Audiobook'%>
+      </div>
+      <br>
+      <div>
+        <%=f.label :language, 'Language'%>
+        <%=f.select :language, {'Русский' => :ru, 'English' => :en}, selected: :ru%>
+      </div>
+      <br>
+      <div>
+        <%=f.label :poster, style: (@book.errors[:poster].any? ? 'color: red;' : '')%>
+        <%=f.file_field :poster%>
+        <%=f.label :background_image%>
+        <%=f.file_field :background_image%>
+      </div>
+      <div>
+        <%=f.label :publish_at%>
+        <%=f.text_field :published_at, type: 'date'%>
+      </div>
+      <div>
+        Publishing house
+        <%=f.select :publishing_house_id, @publishing_houses.collect {|ph| ["#{ph.name} (#{ph.id})", ph.id] }%>
+        <%=link_to 'Add one', new_publishing_house_path, target: '_blank'%>
+        <hr>
+      </div>
+
+      <div style="background-color: #b7e4e1;
+          box-shadow: 0 0 10px 1px black;
+          padding: 10px;">
+        <h4 style="margin-top: 0;">Если такая книга уже есть, впишите в это поле её id, и проигнорируйте остальные данные;<br>
+          иначе оставьте это поле пустым (если в поле есть данные, приоритет отдаётся ему)</h4>
+        <div style="color: red;"><%=flash[:author_ids_errors]%></div>
+        <input name="same_book_id" type="text" placeholder="id книги" value="<%=params[:same_book_id]%>">
+
+        <hr>
+        <br><br>
+
+        <div style="color: red;"><%=flash[:abstract_book_errors]%></div>
+        <input name="author_ids" type="text" placeholder="id авторов через запятую" value="<%=params[:author_ids]%>">
+        <%=link_to 'Add author', new_author_path, target: '_blank'%>
+        <br>
+        <input name="abstract_book[original_name]" type="text" placeholder="Название оригинальной книги" value="<%=@abstract_book.original_name%>">
+        <br>
+        <label for="abstract_book[published_at]">Дата выпуска оригинальной книги</label>
+        <input id="abstract_book[published_at]" name="abstract_book[published_at]" type="date" value="<%=@abstract_book.published_at%>">
+      </div>
+      <hr>
+      <br>
+      <%=f.submit 'Add', name: nil%>
+  <%end%>
+</div>
+<%
+  # add new book
+  #b=Book.new(abstract_book: AbstractBook.first, publishing_house: PublishingHouse.first)
+%>

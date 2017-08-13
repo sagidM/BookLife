@@ -1,3 +1,12 @@
 <%=provide :common_lower_title, 'пользователь'%>
 <%=render 'edit'%>
 User?
+<div class="errors">
+  <%flash.each do |k, v|%>
+      <%=content_tag :p, v, class: k%>
+  <%end%>
+</div>
+<div style="background-color: lightgray; height: 200px;">
+  <%#=current_user.avatar.url.inspect%>
+  <%#=current_user.remove_avatar!.inspect%>
+</div>

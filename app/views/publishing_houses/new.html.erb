@@ -1,0 +1,30 @@
+<%if flash[:errors]%>
+    <h2>Ошибки:</h2>
+    <%for err in flash[:errors]%>
+        <%=err%>
+        <br>
+    <%end%>
+<%end%>
+
+<h1>Добавление издательства</h1>
+
+
+<%=form_for @publishing_house, url: new_publishing_house_path do |f|%>
+    <%=f.text_field :name, placeholder: 'Name...'%>
+    <br>
+    <%=f.text_area :description, placeholder: 'Description...'%>
+    <br>
+    <%=f.label :year_of_foundation, 'Date of foundation'%>
+    <%=f.text_field :year_of_foundation, type: 'date'%>
+    <br>
+    <br>
+    <%=f.file_field :logo%>
+    <br>
+    or url
+    <%=f.text_field :remote_logo_url, placeholder: 'http://...'%>
+    <br>
+    <br>
+    <%=f.submit 'Add', name: nil%>
+<%end%>
+<hr>
+<%=link_to 'Back to publishing houses', publishing_houses_path%>

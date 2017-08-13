@@ -1,0 +1,11 @@
+<h2>Добавление автора</h2>
+
+<%=link_to 'Delete author', author_path(@author), method: :delete,
+           data: {confirm: "Удаление автора также удалит все книги написанные им.\nВы уверены, что хотите удалить всё это?"}%>
+<hr>
+<b><%="#{@author.first_name} #{@author.surname} #{@author.patronymic}"%></b>
+<br>
+<%=@author.bdate%>
+<br>
+
+<%=image_tag @author.avatar, width: 300%>
