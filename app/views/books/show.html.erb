@@ -1,7 +1,5 @@
 <%=provide :common_lower_title, 'книга'%>
 <div class="main-column">
-  <%=link_to 'Delete this book', book_path(@book), method: :delete,
-             data: {confirm: "Вы уверены, что хотите удалить данную книгу?"}%>
   <div class="top-block-main-column">
     <div class="block-info-book">
       <div class="text-info-book">
@@ -52,6 +50,7 @@
         </div>
       </div>
     </div>
+
     <div class="block-related-books">
       <div class="category-book">
         <div class="ebook-block">
@@ -68,41 +67,160 @@
         </div>
       </div>
       <div class="cont-category-book">
-        <h4>Аудиокниги для переключения</h4>
-        <div class="books-another-edition">
-          <div class="book-another-edition">
-            <div class="poster-book-another-edition">
-              <img src="/images/1.jpg" />
-              <div class="go-over-book-another-edition"><div></div></div>
+        <div class="tab-category">
+          <div class="absent">Книги отсутствуют</div>
+        </div>
+        <div class="tab-category">
+          <div class="absent">Аудиокниги для переключения</div>
+          <div class="books-another-edition">
+            <div class="book-another-edition">
+              <div class="poster-book-another-edition">
+                <img src="images/1.jpg" />
+                <div class="go-over-book-another-edition"><div></div></div>
+              </div>
+              <div class="text-book-another-edition">
+                <div class="pub-house-cont-category-book">Нигде не купишь!</div>
+                <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+                <div class="price-book-another-edition">БЕСП.</div>
+              </div>
+              <div class="show-book-another-edition">
+                <div class="bookmark-book-another-edition"><div></div></div>
+                <div class="fragment-book-another-edition">
+                  <div class="ico-fragment-book-another-edition"><div></div></div>
+                  <div class="text-fragment-book-another-edition">фрагмент</div>
+                </div>
+              </div>
             </div>
-            <div class="text-book-another-edition">
-              <div class="pub-house-cont-category-book">Нигде не купишь!</div>
-              <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
-              <div class="price-book-another-edition">БЕСП.</div>
-            </div>
-            <div class="show-book-another-edition">
-              <div class="bookmark-book-another-edition"><div></div></div>
-              <div class="fragment-book-another-edition">
-                <div class="ico-fragment-book-another-edition"><div></div></div>
-                <div class="text-fragment-book-another-edition">фрагмент</div>
+            <div class="book-another-edition">
+              <div class="poster-book-another-edition">
+                <img src="images/2.jpg" />
+                <div class="go-over-book-another-edition"><div></div></div>
+              </div>
+              <div class="text-book-another-edition">
+                <div class="pub-house-cont-category-book">Аудиокниги АСТ</div>
+                <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+                <div class="price-book-another-edition"><div class="buy-price-book-another-edition">150 РУБ.</div><div class="rental-price-book-another-edition">20 РУБ.</div></div>
+              </div>
+              <div class="show-book-another-edition">
+                <div class="bookmark-book-another-edition"><div></div></div>
+                <div class="fragment-book-another-edition">
+                  <div class="ico-fragment-book-another-edition"><div></div></div>
+                  <div class="text-fragment-book-another-edition">фрагмент</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="book-another-edition">
-            <div class="poster-book-another-edition">
-              <img src="/images/2.jpg" />
-              <div class="go-over-book-another-edition"><div></div></div>
+          <div class="absent">Связанные аудиокниги</div>
+          <div class="books-another-edition">
+            <div class="book-another-edition">
+              <div class="poster-book-another-edition">
+                <img src="images/2.jpg" />
+                <div class="go-over-book-another-edition"><div></div></div>
+              </div>
+              <div class="text-book-another-edition">
+                <div class="pub-house-cont-category-book">Аудиокниги АСТ</div>
+                <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+                <div class="price-book-another-edition"><div class="buy-price-book-another-edition">150 РУБ.</div><div class="rental-price-book-another-edition">20 РУБ.</div></div>
+              </div>
+              <div class="show-book-another-edition">
+                <div class="bookmark-book-another-edition"><div></div></div>
+                <div class="fragment-book-another-edition">
+                  <div class="ico-fragment-book-another-edition"><div></div></div>
+                  <div class="text-fragment-book-another-edition">фрагмент</div>
+                </div>
+              </div>
             </div>
-            <div class="text-book-another-edition">
-              <div class="pub-house-cont-category-book">Аудиокниги АСТ</div>
-              <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
-              <div class="price-book-another-edition"><div class="buy-price-book-another-edition">150 РУБ.</div><div class="rental-price-book-another-edition">20 РУБ.</div></div>
+            <div class="book-another-edition">
+              <div class="poster-book-another-edition">
+                <img src="images/2.jpg" />
+                <div class="go-over-book-another-edition"><div></div></div>
+              </div>
+              <div class="text-book-another-edition">
+                <div class="pub-house-cont-category-book">Аудиокниги АСТ</div>
+                <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+                <div class="price-book-another-edition"><div class="buy-price-book-another-edition">150 РУБ.</div><div class="rental-price-book-another-edition">20 РУБ.</div></div>
+              </div>
+              <div class="show-book-another-edition">
+                <div class="bookmark-book-another-edition"><div></div></div>
+                <div class="fragment-book-another-edition">
+                  <div class="ico-fragment-book-another-edition"><div></div></div>
+                  <div class="text-fragment-book-another-edition">фрагмент</div>
+                </div>
+              </div>
             </div>
-            <div class="show-book-another-edition">
-              <div class="bookmark-book-another-edition"><div></div></div>
-              <div class="fragment-book-another-edition">
-                <div class="ico-fragment-book-another-edition"><div></div></div>
-                <div class="text-fragment-book-another-edition">фрагмент</div>
+            <div class="book-another-edition">
+              <div class="poster-book-another-edition">
+                <img src="images/2.jpg" />
+                <div class="go-over-book-another-edition"><div></div></div>
+              </div>
+              <div class="text-book-another-edition">
+                <div class="pub-house-cont-category-book">Аудиокниги АСТ</div>
+                <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+                <div class="price-book-another-edition"><div class="buy-price-book-another-edition">150 РУБ.</div><div class="rental-price-book-another-edition">20 РУБ.</div></div>
+              </div>
+              <div class="show-book-another-edition">
+                <div class="bookmark-book-another-edition"><div></div></div>
+                <div class="fragment-book-another-edition">
+                  <div class="ico-fragment-book-another-edition"><div></div></div>
+                  <div class="text-fragment-book-another-edition">фрагмент</div>
+                </div>
+              </div>
+            </div>
+            <div class="book-another-edition">
+              <div class="poster-book-another-edition">
+                <img src="images/2.jpg" />
+                <div class="go-over-book-another-edition"><div></div></div>
+              </div>
+              <div class="text-book-another-edition">
+                <div class="pub-house-cont-category-book">Аудиокниги АСТ</div>
+                <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+                <div class="price-book-another-edition"><div class="buy-price-book-another-edition">150 РУБ.</div><div class="rental-price-book-another-edition">20 РУБ.</div></div>
+              </div>
+              <div class="show-book-another-edition">
+                <div class="bookmark-book-another-edition"><div></div></div>
+                <div class="fragment-book-another-edition">
+                  <div class="ico-fragment-book-another-edition"><div></div></div>
+                  <div class="text-fragment-book-another-edition">фрагмент</div>
+                </div>
+              </div>
+            </div>
+            <div class="book-another-edition">
+              <div class="poster-book-another-edition">
+                <img src="images/2.jpg" />
+                <div class="go-over-book-another-edition"><div></div></div>
+              </div>
+              <div class="text-book-another-edition">
+                <div class="pub-house-cont-category-book">Аудиокниги АСТ</div>
+                <div class="raiting-book-another-edition"><div class="star-book-another-edition"><div></div></div><div class="numb-book-another-edition">4,5</div></div>
+                <div class="price-book-another-edition"><div class="buy-price-book-another-edition">150 РУБ.</div><div class="rental-price-book-another-edition">20 РУБ.</div></div>
+              </div>
+              <div class="show-book-another-edition">
+                <div class="bookmark-book-another-edition"><div></div></div>
+                <div class="fragment-book-another-edition">
+                  <div class="ico-fragment-book-another-edition"><div></div></div>
+                  <div class="text-fragment-book-another-edition">фрагмент</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-category">
+          <div class="absent">Печатные книги этого издания</div>
+          <div class="books-another-edition">
+            <div class="printed-edition-of-book">
+              <div class="poster-book-another-edition">
+                <img src="images/ozon.png" />
+                <div class="go-over-book-another-edition"><div></div></div>
+              </div>
+              <div class="text-book-another-edition">
+                <div class="price-book-another-edition">209 РУБ.</div>
+              </div>
+              <div class="show-book-another-edition">
+                <div class="bookmark-book-another-edition"><div></div></div>
+                <div class="fragment-book-another-edition">
+                  <div class="ico-fragment-book-another-edition"><div></div></div>
+                  <div class="text-fragment-book-another-edition">фрагмент</div>
+                </div>
               </div>
             </div>
           </div>

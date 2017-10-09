@@ -1,29 +1,42 @@
-
 <div class="left-column">
   <div class="book-column-header">
-    <div class="button-rev-menu">
-      <div></div>
-    </div>
-    <a href="catalog.php" class="logo-quick"><div></div></a>
+    <a style="margin: 7px;" href="#" role="button" class="btm-menu btm-open-menu"><div class="icon-menu icon-open-menu"></div><div></div></a>
+    <a href="/" class="logo-quick"><div></div></a>
     <h2 class="title-name"><%=yield :common_lower_title%></h2>
 
   </div>
   <div class="book-column-body">
-    <div class="<%=request.path.start_with?('/books') ? 'book' : 'user'%>-art">
-      <div class="buttons-control">
-        <div class="button-reveal"><div></div></div>
-        <div class="button-control-share"><div></div></div>
-        <!-- На странице книги -->
-        <div class="button-control-bookmark"><div></div></div>
-      </div>
+    <div class="<% if(params[:controller] == 'books' and params[:action] == 'show')%>book<%end%><% if(params[:controller] == 'users' and params[:action] == 'show')%>user<%end%><% if(params[:controller] == 'books' and params[:action] == 'new')%>edit-book<%end%>-art">
+
+      <!-- Кнопки в левой панели -->
+      <% if(!(params[:controller] == 'books' and params[:action] == 'new'))%>
+        <div class="buttons-control">
+          <div class="button-reveal"><div></div></div>
+          <div class="button-control-share"><div></div></div>
+          <!-- На странице книги -->
+          <div class="button-control-bookmark"><div></div></div>
+        </div>
+        <div class="drop-down-list-button-reveal">
+          <ul>
+            <li><a href="/">Редактировать</a></li>
+            <%if(params[:controller] == 'books' and params[:action] == 'show')%><li><%=link_to 'Удалить', book_path(@book), method: :delete, data: {confirm: "Вы уверены, что хотите удалить данную книгу?"}%></li><%end%>
+          </ul>
+        </div>
+      <%end%>
+
+      <% if params[:controller] == 'books' and params[:action] == 'new' %>
+            <div class="add-img-book-poster"><div class=""></div></div>
+            <div class="dark-book-art"></div>
+            <div class="add-img-book-art"><div class=""></div></div>
+      <%end%>
 
 
       <% if params[:controller] == 'books' and params[:action] == 'show' %>
           <ul class="book-indicators">
-            <li class="indicators-raiting"><div class="img-indicators-raiting"><div></div></div><div class="number-indicators-raiting">4,5</div></li>
-            <li class="indicators-add"><div class="img-indicators-add"><div></div></div><div class="number-indicators-add">237</div></li>
-            <li class="indicators-comment"><div class="img-indicators-comment"><div></div></div><div class="number-indicators-comment">137</div></li>
-            <li class="indicators-quotes"><div class="img-indicators-quotes"><div></div></div><div class="number-indicators-quotes">1137</div></li>
+            <li class="indicators-raiting"><div class="img-indicators-raiting"><div></div></div><div class="number-indicators-raiting">0</div></li>
+            <li class="indicators-add"><div class="img-indicators-add"><div></div></div><div class="number-indicators-add">0</div></li>
+            <li class="indicators-comment"><div class="img-indicators-comment"><div></div></div><div class="number-indicators-comment">0</div></li>
+            <li class="indicators-quotes"><div class="img-indicators-quotes"><div></div></div><div class="number-indicators-quotes">0</div></li>
           </ul>
           <img class="img-book-poster" src="<%=@book.poster%>" />
           <div class="dark-book-art"></div>
@@ -33,34 +46,13 @@
       <% if params[:controller] == 'users' and params[:action] == 'show' %>
           <div class="photo-user" ><img class="img-photo-user" src="<%=@user.avatar%>" /></div>
           <div class="blackout-art"></div>
-          <div class="art-photo-user"><img src="/images/user.jpg" /></div>
-
-          <!-- На странице пользователя -->
-          <div class="user-panel">
-            <h1 class="user-name"><%="#{@user.first_name} #{@user.surname}"%></h1>
-
-            <div class="user-desc">Коротко о себе...</div>
-
-            <div class="button-subscribers">
-              <div class="icons-subscribers">
-                <div class="one-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
-                <div class="two-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
-                <div class="three-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
-                <div class="four-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
-                <div class="four-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
-              </div>
-              <div class="numb-subscribers">234 подписчиков</div>
-            </div>
-            <div class="book-read" id="sub-user">
-              <div class="button-read"><div>ПОДИСАТЬСЯ</div></div>
-            </div>
-          </div>
+          <div class="art-photo-user"><img src="<%=@user.avatar%>" /></div>
       <%end%>
 
     </div>
 
+    <!-- На странице книги -->
     <% if params[:controller] == 'books' and params[:action] == 'show' %>
-      <!-- На странице книги -->
       <div class="book-panel">
         <h1 class="book-name"><%=@book.name%></h1>
         <a href="/" class="book-author">
@@ -98,11 +90,94 @@
     <%end%>
 
 
+    <!-- На странице пользователя -->
+    <% if params[:controller] == 'users' and params[:action] == 'show' %>
+        <div class="user-panel">
+          <h1 class="user-name"><%="#{@user.first_name} #{@user.surname}"%></h1>
+
+          <div class="user-desc">изменить статус</div>
+          <hr style="border: 0;height: 1px;margin: 20px 100px 10px 30px;background: #dbdbdb;">
+          <div class="button-subscribers">
+            <div class="icons-subscribers">
+              <div class="one-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+              <div class="two-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+              <div class="three-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+              <div class="four-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+              <div class="four-icon-subscribers"><img src="<%=@user.avatar%>" /></div>
+            </div>
+            <div class="numb-subscribers">234 подписчиков</div>
+          </div>
+          <div class="book-read" id="sub-user">
+            <div class="button-read"><div>ПОДИСАТЬСЯ</div></div>
+          </div>
+        </div>
+    <%end%>
+
+
+    <!-- На странице добавления или редактирования -->
+    <% if params[:controller] == 'books' and params[:action] == 'new' %>
+        <div class="book-panel">
+          <h1 class="book-name"><input placeholder="Book name" class="inp-book-name" type="text" name="book[name]" id="book_name"></h1>
+
+          <div class="choice-of-parent">
+            <div class="options-for-selecting-parent">
+              <h3>Есть родительский элемент?</h3>
+              <div>
+                <button class="stand-button" id="button-parent-yes">Да</button>
+                <button class="stand-button" id="button-parent-no">Нет</button>
+              </div>
+            </div>
+
+            <div class="selected-option">
+              <div class="parent-selection-panel">
+                <div id="close-parent-selection-panel" class="come-back"><div></div></div>
+                <div class="block-input-parent">
+                  <input placeholder="Выбрать родителя" class="inp-parent-name" type="text">
+                </div>
+              </div>
+              <div class="add-parent-panel">
+                <div id="close-add-parent-panel" class="come-back"><div></div></div>
+                <div class="block-input-parent">
+                  <input placeholder="id авторов через запятую" class="inp-parent-name" type="text">
+                  <input placeholder="Оригинальное название книги" class="inp-parent-name" type="text">
+                  <input placeholder="Дата выпуска оригинала" class="inp-parent-name" type="text">
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="block-with-authors">
+            <a href="#" class="book-author">
+              <div class="avatar-book-author"><img src="images/author.jpg" /></div>
+              <div >
+                <div class="name-book-author">Кормак Маккарти</div>
+                <div class="indicators-book-author">
+                  <div class="books-indicators-book-author"> <div class="img-books-indicators-book-author"><div></div></div> <div class="numb-books-indicators-book-author">2</div> </div>
+                  <div class="quotes-indicators-book-author"> <div class="img-quotes-indicators-book-author"><div></div></div> <div class="numb-quotes-indicators-book-author">12</div> </div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="add-book-author">Добавить автора</a>
+          </div>
+
+
+
+
+
+          <div class="book-read">
+            <div class="button-read"><div>ДОБАВИТЬ ФАЙЛЫ</div></div>
+          </div>
+
+        </div>
+    <%end%>
 
 
     <ul class="menu-second-level">
       <%if(request.path.start_with?('/books'))%>
-          <li class="current-item-menu-second-level item-menu-second-level"><a href="books/1" class="a-item-menu-second-level">О КНИГЕ</a></li>
+          <li class="current-item-menu-second-level item-menu-second-level"><a href="" class="a-item-menu-second-level">О КНИГЕ</a></li>
           <li class="item-menu-second-level"><a href="reviews.php" class="a-item-menu-second-level">РЕЦЕНЗИИ</a></li>
           <li class="item-menu-second-level"><a href="/" class="a-item-menu-second-level">ЦИТАТЫ</a></li>
           <li class="item-menu-second-level"><a href="/" class="a-item-menu-second-level">ПОХОЖИЕ</a></li>
