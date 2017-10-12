@@ -26,13 +26,12 @@
 
 <body>
 
-  <div style="text-align: right;">
+  <div style="text-align: right; position: absolute; top: 0; right: 0;">
     <%=link_to 'Books', books_path%>
     <%=link_to 'Main', root_path%>
     <%=link_to 'Register', signup_path%>
     <%=link_to 'Login', signin_path(@redirect_path)%>
     <%=link_to 'Signout', signout_path(@redirect_path), method: :delete%>
-    <%=link_to 'Users', users_path%>
     <%=link_to 'Settings', current_user_settings_path%>
   </div>
   <div class="background-subscription">
@@ -78,75 +77,110 @@
     <div class="closed-background-subscription"></div>
   </div>
 
-  <div class="left-column-menu">
-    <div class="head-panel-logo">
-      <a href="/" class="logo">КнигаЖизнь</a>
 
-      <div style="display: table; margin: 0 auto;">
-        <img style="width: 20px; background-color: white; padding: 10px; border-radius: 50%; height: 20px; margin: 0 5px; cursor: pointer;" src="/images/ebook.png" />
-        <img style="width: 20px; background-color: white; padding: 10px; border-radius: 50%; height: 20px; margin: 0 5px; cursor: pointer;" src="/images/abook.png" />
+
+
+  <header>
+    <a href="/" class="logo"></a>
+
+    <div class="search"><input type="text" value="" placeholder="Книга, автор, жанр и цитата"></div>
+
+    <ul class="under-the-menu">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">Рекомендуем</a></li>
+      <li><a href="#">Книги</a></li>
+    </ul>
+
+  </header>
+  <div class="left-menu">
+    <a href="#" role="button" class="btm-menu btm-open-menu"><div class="icon-menu icon-open-menu"></div></a>
+    <a href="/" role="button" class="btm-menu"><div class="icon-menu icon-news"></div></a>
+    <a href="/books" role="button" class="btm-menu active-btm-menu"><div class="icon-menu icon-lib"></div></a>
+    <%if signed_in?%>
+          <%=link_to settings_path, class: 'btm-menu' do%>
+              <div class="icon-menu icon-account"></div>
+          <%end%>
+    <%end%>
+    <%=link_to users_path, class: 'btm-menu' do%>
+        <div class="icon-menu icon-people"></div>
+    <%end%>
+    <a href="#" role="button" class="btm-menu"><div class="icon-menu icon-community"></div></a>
+    <a href="#" role="button" class="btm-menu"><div class="icon-menu icon-still"></div></a>
+
+    <a href="#" class="poster-last-book"><img src="/images/ico/book.jpg" /></a>
+
+
+
+
+    <% if signed_in? %>
+        <div class="user-left-menu">
+          <img src="<%=current_user.thumbnail%>" />
+          <div class="alerts-left-menu">0</div>
+        </div>
+    <%else%>
+        <div id="open_auth_form" class="login-mini login"><div class="icon-login"><div></div></div></div>
+    <% end %>
+
+  </div>
+
+
+  <div class="pop-up-menu">
+    <div class="background-menu"></div>
+
+    <div class="panel-menu">
+      <div class="header-panel-menu">
+        <div role="button" class="btm-menu btm-open-menu"><div class="icon-menu icon-open-menu"></div></div>
+        <a href="/" class="logo-pop-up-menu"></a>
+      </div>
+      <div class="search"><input type="text" value="" placeholder="Книга, автор, жанр и цитата"></div>
+
+      <div class="btms-panel-menu">
+        <a href="#" role="button" class="btm-panel-menu"><div class="carcass-panel-menu"><div class="icon-menu icon-news"></div></div><div class="text-btm-panel-menu">Лента</div></a>
+        <a href="/books" role="button" class="btm-panel-menu"><div class="carcass-panel-menu"><div class="icon-menu icon-lib"></div></div><div class="text-btm-panel-menu">Библиотека</div></a>
+        <%if signed_in?%>
+              <%=link_to settings_path, class: 'btm-panel-menu' do%>
+                  <div class="carcass-panel-menu"><div class="icon-menu icon-account"></div></div><div class="text-btm-panel-menu">Профиль</div>
+              <%end%>
+        <%end%>
+        <%=link_to users_path, class: 'btm-panel-menu' do%>
+            <div class="carcass-panel-menu"><div class="icon-menu icon-people"></div></div><div class="text-btm-panel-menu">Люди</div>
+        <%end%>
+        <a href="#" role="button" class="btm-panel-menu"><div class="carcass-panel-menu"><div class="icon-menu icon-community"></div></div><div class="text-btm-panel-menu">Сообщества</div></a>
       </div>
 
-      <div class="search"><input type="text" value="" placeholder="Книга, автор или жанр"></div>
-    </div>
-
-    <div class="body-left-column-menu">
-      <ul class="head-menu">
-        <li class="current-item-head-menu item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu tape-img-item-head-menu"><div class="tape-img-item-head-menu"></div></span><span class="text-item-head-menu">ЛЕНТА</span></a></li>
-        <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="library-img-item-head-menu"></div></span><span class="text-item-head-menu">БИБЛИОТЕКА</span></a></li>
-        <%if signed_in?%>
-          <li class="item-head-menu">
-            <%=link_to settings_path, class: 'a-item-head-menu' do%>
-                <span class="img-item-head-menu"><div class="profile-img-item-head-menu"></div></span>
-                <span class="text-item-head-menu">ПРОФИЛЬ</span>
-            <%end%>
-          </li>
-        <%end%>
-        <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="people-img-item-head-menu"></div></span><span class="text-item-head-menu">ЛЮДИ</span></a></li>
-        <li class="item-head-menu"><a href="/" class="a-item-head-menu"><span class="img-item-head-menu"><div class="group-img-item-head-menu"></div></span><span class="text-item-head-menu">ПОЛКИ</span></a></li>
-      </ul>
-
-      <div class="word-favorites">подписки</div>
-
-      <ul class="head-favorites">
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">МИРОВАЯ ЛИТЕРАТУРА</span></a></li>
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
-        <li class="item-head-favorites"><a href="/" class="a-item-head-favorites"><img class="library-img-item-head-favorites" src="/images/4.jpg" /><span class="text-item-head-favorites">БИЗНЕС КНИГИ</span></a></li>
-      </ul>
       <div class="head-continue">
-        <img class="img-head-continue" src="/images/5.jpg" />
+        <img class="img-head-continue" src="/images/ico/book.jpg">
         <span class="text-head-continue">Продолжить...</span>
 
         <div class="head-reveal-history-of-reading"><div></div></div>
       </div>
 
+
+
       <% if signed_in? %>
           <div class="head-user-panel">
-            <img class="img-head-user-panel" src="<%=current_user.thumbnail%>" />
+            <img class="img-head-user-panel" src="<%=current_user.thumbnail%>">
 
             <div class="text-head-user-panel">
               <div class="name-head-user-panel"><%=user_full_name current_user%></div>
               <a href="/" class="subscription-head-user-panel"><div></div>Без подписки</a>
             </div>
 
-            <div class="notification-head-user-panel"><div></div></div>
+            <div class="notification-head-user-panel"><div class="icon-notification"></div><div class="alerts-left-menu">0</div></div>
             <div class="bottom-arrow-head-user-panel"><div></div></div>
+
           </div>
       <%else%>
-          <div id="open_auth_form" class="login">
-            <div>ВХОД ИЛИ РЕГИСТРАЦИЯ</div>
-          </div>
+          <div id="open_auth_form" class="login-pop-up-menu login"><div class="btm-login">ВХОД ИЛИ РЕГИСТРАЦИЯ</div></div>
       <% end %>
-
     </div>
-
   </div>
+
+
 
   <!-- Левое поле -->
   <!--<? if($path == 'book.php' || $path == 'reviews.php' || $path == 'user.php') : ?>-->
-  <%= render 'shared/left_menu' if (params[:controller] == 'users' and params[:action] == 'show') or (params[:controller] == 'books' and params[:action] == 'show')%>
+  <%= render 'shared/left_menu' if (params[:controller] == 'users' and params[:action] == 'show') or (params[:controller] == 'books' and params[:action] == 'show') or (params[:controller] == 'books' and params[:action] == 'new')%>
   <!--<? endif; ?>-->
   <div class="main-column-catalog">
     <!-- require 'views/' . $path; -->

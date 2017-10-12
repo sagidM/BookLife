@@ -1,17 +1,3 @@
-@font-face {
-	font-family: Myriad Pro;
-	src: url(/fonts/MyriadPro-Regular.otf);
-}
-@font-face {
-	font-family: MProCond;
-	src: url(/fonts/MyriadPro-Cond.otf);
-}
-body {
-    margin: 0;
-    background-color: #eeeeee;
-    font-family: Myriad Pro;
-}
-
 .left-column {
     width: 360px;
     height: 100%;
@@ -20,34 +6,39 @@ body {
     position: fixed;
     top: 0;
     animation: spin .3s cubic-bezier(0.0,0.0,0.2,1);
-    z-index: 20;
+    z-index: 1000;
 }
 @keyframes spin {
-	from {
-		left: -360;
-	}
-	to {
-		left: 0;
-	}
+    from {
+        left: -360;
+    }
+    to {
+        left: 0;
+    }
 }
 .main-column {
-    position: relative;
+    position: absolute;
+    top: 0;
+    margin: -70px 25px 0 285px;
     animation: spin-2 .3s cubic-bezier(0.0,0.0,0.2,1);
+    z-index: 1000;
 }
 @keyframes spin-2 {
-	from {
-		top: 250px;
-		opacity: 0;
-	}
-	to {
-		top: 0;
-		opacity: 1;
-	}
+    from {
+        top: 250px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
 }
 .book-column-header {
     height: 60px;
     width: 100%;
     background-color: #2e5d5d;
+    background-color: #3290de;
+    background-color: #505d68;
     color: white;
     box-shadow: 0px 2px 90px 35px rgba(0, 0, 0, 0.75);
     position: relative;
@@ -56,7 +47,7 @@ body {
 .img-book-art {
     width: 100%;
     height: 100%;
-	overflow: hidden;
+    overflow: hidden;
     user-select: none;
     position: absolute;
     top: 0;
@@ -83,11 +74,10 @@ body {
     top: 0;
 }
 .logo-quick {
-    width: 28px;
-    height: 21px;
     float: left;
-    margin: 10px 16px 10px 6px;
-    padding: 9px;
+    margin: 4px 16px;
+    width: 52px;
+    height: 52px;
 }
 .button-rev-menu {
     width: 20px;
@@ -100,7 +90,7 @@ body {
     transition: background-color .3s, box-shadow .3s;
 }
 .button-rev-menu>div {
-    background-image: url(/images/ico/Menu.svg);
+    background-image: url(../images/ico/Menu.svg);
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
@@ -124,7 +114,7 @@ body {
     box-shadow: 1px 1px 1px 0px rgba(23, 53, 53, 0.26);
 }
 a.logo-quick>div {
-    background-image: url(/images/ico/kn.png);
+    background-image: url(../images/ico/mycircle.png);
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
@@ -182,10 +172,10 @@ a.logo-quick>div {
     cursor: pointer;
     border-radius: 30px;
     transition: background-color .3s, box-shadow .3s;
-	
+
 }
 
-.buttons-control>div:hover {
+.buttons-control>div:hover, .open-button-reveal {
     background-color: rgba(255, 255, 255, 0.25);
     box-shadow: 1px 1px 1px 0px rgba(23, 53, 53, 0.26);
 }
@@ -211,13 +201,13 @@ a.logo-quick>div {
 }
 
 .button-reveal>div {
-    background-image: url(/images/ico/reveal-func.png);
+    background-image: url(../images/ico/reveal-func.png);
 }
 .button-control-share>div {
-    background-image: url(/images/ico/share.png);
+    background-image: url(../images/ico/share.png);
 }
 .button-control-bookmark>div {
-    background-image: url(/images/ico/bookmark-white.png);
+    background-image: url(../images/ico/bookmark-white.png);
 }
 
 .book-indicators>li {
@@ -264,16 +254,16 @@ a.logo-quick>div {
     height: 100%;
 }
 .img-indicators-raiting>div {
-    background-image: url(/images/ico/raiting-white.png);
+    background-image: url(../images/ico/raiting-white.png);
 }
 .img-indicators-add>div {
-    background-image: url(/images/ico/add-white.png);
+    background-image: url(../images/ico/add-white.png);
 }
 .img-indicators-comment>div {
-    background-image: url(/images/ico/comment-white.png);
+    background-image: url(../images/ico/comment-white.png);
 }
 .img-indicators-quotes>div {
-    background-image: url(/images/ico/quotes-white.png);
+    background-image: url(../images/ico/quotes-white.png);
 }
 
 .avatar-book-author {
@@ -316,7 +306,7 @@ a.logo-quick>div {
 }
 .indicators-book-author>div {
     margin-right: 10px;
-	
+
 }
 .img-books-indicators-book-author>div, .img-quotes-indicators-book-author>div {
     background-size: 100% 100%;
@@ -324,10 +314,10 @@ a.logo-quick>div {
     height: 100%;
 }
 .img-books-indicators-book-author>div {
-    background-image: url(/images/ico/books-gray.png);
+    background-image: url(../images/ico/books-gray.png);
 }
 .img-quotes-indicators-book-author>div {
-    background-image: url(/images/ico/quote-grey.png);
+    background-image: url(../images/ico/quote-grey.png);
 }
 .button-read {
     width: 144px;
@@ -339,8 +329,8 @@ a.logo-quick>div {
     border-radius: 2px;
     font-size: 14px;
     font-weight: 600;
-	user-select: none;
-	float: left;
+    user-select: none;
+    float: left;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
     transition: box-shadow .3s;
 }
@@ -358,11 +348,11 @@ a.logo-quick>div {
     font-size: 13px;
     color: #a4a4a4;
     margin: 11px 20px;
-	user-select: none;
-	cursor: pointer;
+    user-select: none;
+    cursor: pointer;
 }
-.button-read>div {    
-	padding: 10px 0;
+.button-read>div {
+    padding: 10px 0;
 }
 
 .button-subscribers {
@@ -428,7 +418,7 @@ a.logo-quick>div {
     margin-bottom: 10px;
     display: table;
     text-decoration: none;
-	user-select: none;
+    user-select: none;
     transition: background-color .3s, color .3s, box-shadow .3s, border-radius .3s;
 }
 a.button-get-book>span {
@@ -441,7 +431,7 @@ a.button-get-book>span {
     border-radius: 2px;
 }
 .menu-second-level {
-	list-style-type: none;
+    list-style-type: none;
     position: absolute;
     right: 0;
     bottom: 130px;
@@ -449,9 +439,6 @@ a.button-get-book>span {
     font-size: 14px;
     color: #2c2c2c;
     font-weight: 600;
-}
-.main-column {
-    margin: 45px 25px 0 125px;
 }
 .block-info-book {
     width: 560px;
@@ -478,6 +465,8 @@ a.button-get-book>span {
     font-size: 14px;
     font-family: verdana;
     line-height: 1.6em;
+    height: 200px;
+    overflow: overlay;
 }
 .block-info-book>div>h3 {
     font-size: 18px;
@@ -525,8 +514,8 @@ a.button-get-book>span {
     padding: 5px 0;
     display: table;
     text-decoration: none;
-    user-select: none;    
-	margin: 0 20px 15px 7px;
+    user-select: none;
+    margin: 0 20px 15px 7px;
     float: right;
     transition: background-color .3s, color .3s;
 }
@@ -544,8 +533,8 @@ a.button-get-book>span {
     padding: 5px 0;
     display: table;
     text-decoration: none;
-    user-select: none;    
-	margin: 0 0 15px 20px;
+    user-select: none;
+    margin: 0 0 15px 20px;
     transition: background-color .3s, color .3s;
 }
 .left-character-button {
@@ -581,7 +570,7 @@ a.button-get-book>span {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(/images/ico/raiting.png);
+    background-image: url(../images/ico/raiting.png);
 }
 .book-evaluation {
     float: left;
@@ -618,7 +607,33 @@ a.button-get-book>span {
     margin: 6px auto 0;
 }
 
-
+.drop-down-list-button-reveal {
+    position: absolute;
+    z-index: 999;
+    top: 50px;
+    right: 5px;
+    background-color: white;
+    width: 200px;
+    border-radius: 2px;
+    display: none;
+    padding: 10px 0;
+}
+.drop-down-list-button-reveal > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.drop-down-list-button-reveal a {
+    font-size: 14px;
+    color: #414141;
+    padding: 10px 15px;
+    display: grid;
+    transition: .3s;
+    text-align: center;
+}
+.drop-down-list-button-reveal a:hover {
+    background-color: #eeeeee;
+}
 .block-related-books {
     width: 216px;
     height: 470px;
@@ -626,18 +641,18 @@ a.button-get-book>span {
 }
 .category-book {
     background-color: white;
-    height: 75px;
     width: 100%;
     box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
     border-radius: 2px;
     user-select: none;
+    overflow: hidden;
 }
-.cont-category-book>div>div {
+.book-another-edition, .printed-edition-of-book {
     height: 50px;
     background-color: white;
     box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
     border-radius: 2px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     cursor: pointer;
     position: relative;
     transition: background-color .3s;
@@ -659,11 +674,11 @@ a.button-get-book>span {
 
 .category-book>div {
     display: table-cell;
-	color: #a6a6a6;
+    color: #a6a6a6;
     border: 1px solid white;
     padding: 8px 8px 3px 8px;
-    border-width: 0 0 5px 0;
-	cursor: pointer;
+    border-width: 0 0 3px 0;
+    cursor: pointer;
 }
 .category-book>div:hover {
     border-color: rgb(33,38,50);
@@ -678,23 +693,23 @@ a.button-get-book>span {
     margin-bottom: 6px;
 }
 .img-ebook-block {
-    background-image: url(/images/ico/ipadTest.png);
+    background-image: url(../images/ico/ipadTest.png);
 }
 .img-aubook-block {
-    background-image: url(/images/ico/icoHePhon.png);
+    background-image: url(../images/ico/icoHePhon.png);
 }
 .img-pbook-block {
-    background-image: url(/images/ico/icoEBook.png);
+    background-image: url(../images/ico/icoEBook.png);
 }
 
 .category-book>div:hover>.img-ebook-block {
-    background-image: url(/images/ico/BlackipadTest.png);
+    background-image: url(../images/ico/BlackipadTest.png);
 }
 .category-book>div:hover>.img-aubook-block {
-    background-image: url(/images/ico/BlackicoHePhon.png);
+    background-image: url(../images/ico/BlackicoHePhon.png);
 }
 .category-book>div:hover>.img-pbook-block {
-    background-image: url(/images/ico/BlackicoEBook.png);
+    background-image: url(../images/ico/BlackicoEBook.png);
 }
 
 
@@ -797,7 +812,7 @@ a.button-get-book>span {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(/images/ico/raiting-yellow.png);
+    background-image: url(../images/ico/raiting-yellow.png);
 }
 .evaluation-author-reviews>div {
     width: 12px;
@@ -832,7 +847,7 @@ a.button-get-book>span {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(/images/ico/raiting-yellow.png);
+    background-image: url(../images/ico/raiting-yellow.png);
 }
 .numb-book-another-edition {
     font-size: 11px;
@@ -873,7 +888,7 @@ a.button-get-book>span {
     box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
 }
 .fragment-book-another-edition:hover>.ico-fragment-book-another-edition>div {
-    background-image: url(/images/ico/play_2-white.png);
+    background-image: url(../images/ico/play_2-white.png);
 }
 .fragment-book-another-edition:hover>.text-fragment-book-another-edition {
     color: white;
@@ -886,7 +901,7 @@ a.button-get-book>span {
 .book-another-edition:hover>.show-book-another-edition {
     opacity: 1;
 }
-.book-another-edition:hover {
+.book-another-edition:hover, .printed-edition-of-book:hover {
     background-color: rgba(255, 255, 255, 0.41);
 }
 .ico-fragment-book-another-edition {
@@ -899,7 +914,7 @@ a.button-get-book>span {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(/images/ico/play_2.png);
+    background-image: url(../images/ico/play_2.png);
 }
 .text-fragment-book-another-edition {
     float: right;
@@ -924,10 +939,10 @@ a.button-get-book>span {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    background-image: url(/images/ico/bookmark-gray.png);
+    background-image: url(../images/ico/bookmark-gray.png);
 }
 .bookmark-book-another-edition:hover>div {
-    background-image: url(/images/ico/bookmark-white.png);
+    background-image: url(../images/ico/bookmark-white.png);
 }
 
 .book-another-edition>.poster-book-another-edition>.go-over-book-another-edition {
@@ -936,18 +951,18 @@ a.button-get-book>span {
     position: absolute;
     top: 0;
     background-color: rgba(0, 0, 0, 0.60);
-	opacity: 0;
+    opacity: 0;
     transition: opacity .3s;
 }
 .book-another-edition:hover>.poster-book-another-edition>.go-over-book-another-edition {
-	opacity: 1;
+    opacity: 1;
 }
 .book-another-edition>.poster-book-another-edition>.go-over-book-another-edition>div {
     background-size: 100% 100%;
     width: 19px;
     height: 19px;
     margin: 16px;
-    background-image: url(/images/ico/open.png);
+    background-image: url(../images/ico/open.png);
 }
 .price-book-another-edition {
     font-size: 11px;

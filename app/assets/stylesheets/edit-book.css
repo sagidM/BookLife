@@ -1,0 +1,391 @@
+html {
+    font-size: 14px;
+}
+.inp-book-name {
+    font-weight: bold;
+    font-size: 30px;
+    width: 100%;
+    outline: none;
+    border-width: 0 0 2px 0;
+    border-color: #45a4f2;
+    background-color: #eeeeee;
+    border: 0;
+    color: #606060;
+    margin-left: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 0;
+    transition: .3s;
+}
+.inp-book-name:hover {
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    transition: background-color .3s, color .3s;
+}
+.inp-book-name:focus {
+    border-color: #448a8a;
+}
+.add-book-author {
+    margin: 10px 30px 0;
+    display: table;
+    font-size: 14px;
+}
+.area-for-filling {
+    display: table;
+    width: 92%;
+    padding: 8px 4%;
+    background-color: #eeeeee;
+    margin-bottom: 10px;
+    color: #606060;
+    border-radius: 2px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .3s;
+    position: relative;
+}
+textarea.description-field:focus, input.inp-book-name:focus {
+    background-color: #eeeeee;
+    cursor: text;
+}
+.area-for-filling:hover, .description-field:hover, .inp-book-name:hover, .choice-of-parent:hover {
+    background-color: #e5e5e5;
+}
+.area-for-filling>label {
+    user-select: none;
+}
+.description-field {
+    font-size: 14px;
+    font-family: verdana;
+    line-height: 1.6em;
+    width: 100%;
+    border: 0;
+    margin-bottom: 10px;
+    color: #606060;
+    border-radius: 2px;
+    background-color: #eeeeee;
+    padding: 15px 4%;
+    resize: vertical;
+    transition: background-color .3s;
+    cursor: pointer;
+}
+.area-for-filling>select, .area-for-filling>input {
+    background-color: #eeeeee;
+    border: 0;
+    color: #606060;
+    font-size: 14px;
+    margin-left: 20px;
+    width: 150px;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+}
+.area-for-filling>select:hover, .area-for-filling>input:hover, .inp-parent-name:hover {
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    transition: .3s;
+}
+.button-add-publ {
+    width: 84px;
+    text-align: center;
+    background-color: #bebebe;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    user-select: none;
+    color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    transition: background-color .3s, color .3s;
+    padding: 8px 0;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+.button-add-publ:hover {
+    background-color: #ffbd00;
+    color: #000000;
+}
+.panel-edit-book {
+    width: 560px;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+    color: #191919;
+    position: relative;
+    float: left;
+    margin-right: 14px;
+}
+.fields-for-filling {
+    padding: 20px 20px 167px 20px;
+}
+
+.add-book {
+    width: 144px;
+    text-align: center;
+    background-color: #498e8e;
+    color: white;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    user-select: none;
+    float: right;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    transition: box-shadow .3s;
+    margin: 20px;
+}
+.add-book:hover {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+}
+.add-book>div {
+    padding: 10px 0;
+}
+.absent {
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(96, 96, 96, 0.73);
+    margin: 11px 0 8px;
+    cursor: default;
+    user-select: none;
+}
+
+.panel-choice-of-parent {
+    background-color: white;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color .3s;
+}
+.edit-book-art {
+    width: 100%;
+    height: 235px;
+    position: relative;
+    transition: height .3s;
+    cursor: pointer;
+}
+
+
+.drop-down-list-button-reveal {
+    border: 1px solid;
+    width: 200px;
+    position: absolute;
+    z-index: 99;
+    background-color: white;
+    display: none;
+    right: 5px;
+    border-radius: 2px;
+    top: 50px;
+}
+.list {
+    border: 1px solid;
+    width: 300px;
+    position: absolute;
+    z-index: 99;
+    background-color: white;
+    display: none;
+}
+
+
+.add-img-book-poster {
+    position: absolute;
+    width: 103px;
+    height: 150px;
+    right: 35px;
+    bottom: 40px;
+    transition: opacity .3s;
+    border: 2px dashed #0087F7;
+    background-color: white;
+    z-index: 999;
+    opacity: 0.7;
+}
+.add-img-book-poster>div {
+    background-size: 100% 100%;
+    width: 40px;
+    height: 40px;
+    margin: 55px auto;
+    background-image: url(../images/ico/pos.png);
+}
+.add-img-book-art {
+    width: 90%;
+    height: 82%;
+    margin: 20px 15px;
+    overflow: hidden;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    border: 2px dashed #0087F7;
+    z-index: 99;
+    background: white;
+    transition: .3s;
+    opacity: 0.4;
+}
+.add-img-book-poster:hover {
+    opacity: 1;
+}
+.add-img-book-art:hover {
+    opacity: 1;
+}
+.edit-book-art>.dark-book-art {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.add-img-book-art>div {
+    background-size: 100% 100%;
+    width: 70px;
+    height: 70px;
+    margin: 62px;
+    background-image: url(../images/ico/pos.png);
+}
+
+.stand-button {
+    width: 84px;
+    text-align: center;
+    background-color: #bebebe;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 1rem;
+    font-weight: 600;
+    user-select: none;
+    color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    transition: background-color .3s, color .3s;
+    padding: 8px 0;
+    border: 0;
+}
+.stand-button:hover {
+    background-color: #45a4f2;
+}
+.choice-of-parent {
+    background-color: #eeeeee;
+    margin: 15px 30px;
+    color: #606060;
+    border-radius: 2px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .4s;
+    position: relative;
+    height: 93px;
+    overflow: hidden;
+}
+.options-for-selecting-parent>h3 {
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+.options-for-selecting-parent>div {
+    display: table;
+    margin: 0 auto;
+}
+.choice-of-parent .stand-button {
+    margin: 0 5px;
+}
+.come-back {
+    width: 15px;
+    height: 15px;
+    padding: 10px 11px 10px 9px;
+    margin: 10px;
+    float: left;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: .3s;
+    background-color: #bebebe;
+    box-shadow: 1px 1px 1px 0px rgba(23, 53, 53, 0.26);
+    position: relative;
+    z-index: 999;
+}
+.come-back:hover {
+    background-color: #45a4f2;
+    box-shadow: 1px 1px 1px 0px rgba(23, 53, 53, 0.26);
+}
+.come-back>div {
+    background-image: url(../images/ico/curtail-white.png);
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    -moz-transform: rotate(90deg); /* Для Firefox */
+    -ms-transform: rotate(90deg); /* Для IE */
+    -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(90deg); /* Для Opera */
+    transform: rotate(90deg);
+}
+
+
+.options-for-selecting-parent {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    transition: 0.4s;
+    padding: 15px 0;
+}
+.parent-selection-panel, .add-parent-panel {
+    width: 100%;
+    position: absolute;
+    right: -100%;
+    transition: 0.4s;
+    top: 0;
+}
+
+.inp-parent-name {
+    width: 70%;
+    float: right;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 15px;
+    outline: none;
+    border-width: 0 0 2px 0;
+    border-color: #45a4f2;
+    background-color: #eeeeee;
+    border: 0;
+    color: #606060;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.stand-round-button {
+    width: 15px;
+    height: 15px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px auto;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: .3s;
+    background-color: white;
+    box-shadow: 0 1px 1px 0px rgba(23, 53, 53, 0.26);
+}
+.stand-round-button:hover {
+    background-color: #45a4f2;
+    box-shadow: 1px 1px 1px 0px rgba(23, 53, 53, 0.26);
+}
+.stand-round-button>div {
+    background-image: url(../images/ico/plus-grey.png);
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+.stand-round-button:hover>div {
+    background-image: url(../images/ico/plus-white.png);
+}
+
+
+.tab-category {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: .3s;
+}
+.active-tab-category {
+    top: 0;
+    opacity: 1;
+}
+.cont-category-book {
+    position: relative;
+    height: 397px;
+    overflow: auto;
+}
+div.active {
+    border-color: rgb(166, 166, 166);
+}
