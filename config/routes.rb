@@ -1,15 +1,8 @@
 p 'routes is initializing'
 
 Rails.application.routes.draw do
-  get 'author/index'
-
-  get 'author/new'
-
-  get 'author/create'
-
-  get 'author/show'
-
   root 'home#index'
+  match 'console' => 'home#console', via: :all
 
   # SessionsController
   match '/login(?redirect_to=:redirect_page)', to: 'sessions#new', via: :get, as: :signin
